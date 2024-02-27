@@ -100,3 +100,23 @@ def inv(p):
 
     return 1 / (9.81 * (p / 2.0 * np.pi )**2)
 
+def energy(m: float, len: float, theta: float) -> float:
+    """
+    Calculate the energy of a pendulum.
+
+    Parameters
+    ----------
+    m : float
+        mass of the pendulum bob [kg]
+    len : float
+        length of the pendulum [m]
+    theta : float
+        maximum angle of displacment of the pendulum [radians]
+
+    Returns
+    -------
+    float
+        energy [kg . m2 /s2] of the pendulum
+    """
+    return m * 9.81 * max_height(len, theta)
+
