@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools >= 61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyndulum"
+version = "1.0.0"
+description = "A python code for pendulum equations"
+authors = [
+  { name="Jack Atkinson", email="jack.atkinson1000@gmail.com" },
+]
+readme = "README.md"
+# license = {file = "LICENSE"}
+requires-python = ">=3.9"
+classifiers = [
+    "License :: OSI Approved :: GPL-3.0-only License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "numpy>=1.20.0",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.2.0",
+]
+lint = [
+    "ruff",
+    "mypy>=1.0.0",
+    "pytest>=7.2.0",
+]
+
+[project.urls]
+"Homepage" = "https://gitlab.com/jatkinson1000/git-for-science"
+"Bug Tracker" = "https://gitlab.com/jatkinson1000/git-for-science/-/issues"
+
+[tool.setuptools]
+# By default, include-package-data is true in pyproject.toml, so you do
+# NOT have to specify this line.
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]  # list of folders that contain the packages (["."] by default)
+include = ["pyndulum", "pyndulum.*"]  # package names should match these glob patterns (["*"] by default)
+exclude = ["pyndulum.tests*", "examples.py"]  # exclude packages matching these glob patterns (empty by default)
+namespaces = false  # to disable scanning PEP 420 namespaces (true by default)
+
+[tool.mypy]
+warn_unused_configs = true
+plugins = ["numpy.typing.mypy_plugin"]
+
+[tool.ruff]
+# Run linting and formatting on notebooks
+extend-include = ["*.ipynb"]
+
+[tool.ruff.lint]
+# Enable:  D: `pydocstyle`, PL: `pylint`, I: `isort`, W: `pycodestyle whitespace`
+#          NPY: `numpy`, 
+select = ["D", "PL", "I", "E", "W", "NPY"]
+
+# Enable D417 (Missing argument description) on top of the NumPy convention.
+extend-select = ["D417"]
+
+[tool.ruff.lint.pydocstyle]
+# Use NumPy convention for checking docstrings
+convention = "numpy"
