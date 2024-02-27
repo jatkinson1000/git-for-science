@@ -94,5 +94,9 @@ def bpm(len: float) -> float:
     return 60.0 / get_period(len)
 
 def inv(p):
-    return 9.81 * (p / 2.0 * np.pi )**2
+    """
+    some docs
+    """
+
+    return 1 / (9.81 * (p / 2.0 * np.pi )**2)
 
