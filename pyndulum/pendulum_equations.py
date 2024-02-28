@@ -95,4 +95,4 @@ def bpm(len: float) -> float:
 
 
 def inv(p):
-    return ((p / 2.0 * np.pi) ** 2) / 9.81
+    return 9.81 * (p / 2.0 * np.pi) ** 2
