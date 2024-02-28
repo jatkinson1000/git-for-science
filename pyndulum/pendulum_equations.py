@@ -94,5 +94,18 @@ def bpm(len: float) -> float:
     return 60.0 / get_period(len)
 
 
-def inv(p):
+def get_length(p: float) -> float:
+    """
+    Calculate the length of a pendulum based on period.
+
+    Parameters
+    ----------
+    p : float
+        period [s] for a swing of the pendulum
+
+    Returns
+    -------
+    float
+        length of the pendulum [m]
+    """
     return 9.81 * (p / 2.0 * np.pi) ** 2
