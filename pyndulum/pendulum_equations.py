@@ -113,3 +113,20 @@ def energy(m: float, len: float, theta: float) -> float:
         energy [kg . m2 /s2] of the pendulum
     """
     return m * 9.81 * max_height(len, theta)
+
+
+def get_length(p: float) -> float:
+    """
+    Calculate the length of a pendulum based on period.
+
+    Parameters
+    ----------
+    p : float
+        period [s] for a swing of the pendulum
+
+    Returns
+    -------
+    float
+        length of the pendulum [m]
+    """
+    return 9.81 * (p / 2.0 * np.pi) ** 2
