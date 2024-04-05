@@ -19,6 +19,8 @@ def get_period(len: float) -> float:
     """
     return 2.0 * np.pi * np.sqrt(len / 9.81)
 
+def get_l(period: float) -> float:
+    return np.sqrt(9.81/period)*1.0/(2.0*np.pi)
 
 def max_height(len: float, theta: float) -> float:
     """
