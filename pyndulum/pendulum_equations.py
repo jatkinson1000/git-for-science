@@ -113,5 +113,3 @@ def get_energy(len: float, theta: float, mass: float) -> float:
         maximum energy [kg m^2/s^2] of the pendulum
     """
     return 0.5 * mass * max_speed(len, theta)
-
-
