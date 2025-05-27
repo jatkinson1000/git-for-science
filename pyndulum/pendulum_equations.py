@@ -94,6 +94,10 @@ def bpm(len: float) -> float:
     return 60.0 / get_period(len)
 
 
+def inv(p):
+    return ((p / 2.0 * np.pi) ** 2) / 9.81
+
+
 def energy(m: float, len: float, theta: float) -> float:
     """
     Calculate the energy of a pendulum.
