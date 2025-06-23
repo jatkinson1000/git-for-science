@@ -1,0 +1,76 @@
+<!----------------------------------------------------------------------------------->
+
+## README {.smaller}
+
+- A file in the main directory of your repository.
+- The entry point for new users.
+- Helps to ensure your code is used properly.
+- Today encouraged to be written in [Markdown](https://www.markdownguide.org/)
+  as `README.md`.
+
+<!----------------------------------------------------------------------------------->
+
+## README - examples {.smaller}
+
+::: {.fragment .fade-in-then-out}
+![](images/terrible_readme.jpg){.absolute left=25% width=50%}
+:::
+
+::: {.fragment .fade-in-then-out}
+![](images/bad_readme.jpg){.absolute left=25% width=50%}
+:::
+::: {.fragment}
+![](images/good_readme_1.jpg){.absolute left=0% width=48%}
+![](images/good_readme_2.jpg){.absolute right=0% width=48%}
+:::
+
+<!----------------------------------------------------------------------------------->
+
+## README {.smaller}
+
+:::: {.columns}
+::: {.column width=50%}
+#### Essential
+
+- Name
+- Short summary
+- Install instructions
+- Usage/getting-started instructions
+- Information about contributing
+- Authors and Acknowledgment
+- License information
+
+:::
+::: {.column}
+#### Nice to have:
+
+- References to key papers/materials
+- Badges
+- Examples
+- Link to docs
+- List of users
+- FAQ
+- See [readme.so/](https://readme.so) for a longer list
+
+:::
+::::
+
+[makeareadme.com](https://www.makeareadme.com/) and [readme.so](https://readme.so/)
+are great tools to help.\
+\
+Add as soon as you can in a project and update as you go along.
+
+<!----------------------------------------------------------------------------------->
+
+## Exercise - README {.smaller}
+
+How can we improve the README in the _pyndulum_ code?
+
+Edit the `README.md` file to improve it.
+
+Add and commit your changes.
+
+If you are working from a fork then push to see these changes reflected on the online
+remote.
+
+<!----------------------------------------------------------------------------------->

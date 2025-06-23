@@ -1,0 +1,210 @@
+---
+output-file: index
+title: "git for Scientific Software Development"
+format:
+  revealjs:
+    embed-resources: false
+    slide-number: false
+    chalkboard: false
+    preview-links: auto
+    history: false
+    highlight-style: a11y
+    code-block-height: 100%
+    code-overflow: wrap
+    code-line-numbers: false
+    logo: https://iccs.cam.ac.uk/files/iccs_ucam_combined_reverse_colour.png
+    theme: [dark, custom.scss]
+revealjs-plugins:
+  - attribution
+authors:
+  - name: Jack Atkinson
+    orcid: 0000-0001-5001-4812
+    affiliations: Senior Research Software Engineer <br> ICCS - University of Cambridge
+date: "2025-06-23"
+bibliography: references.bib
+---
+
+## Precursors {.smaller .nostretch}
+
+:::: {.columns}
+::: {.column width="50%"}
+#### Slides and Materials
+
+To access links or follow on your own device these slides can be found at:  
+[https://jackatkinson.net/slides](https://jackatkinson.net/slides)
+
+\
+
+All materials are available at:
+
+::: {.column style="font-size: 95%;"}
+
+- [gitlab.com/jatkinson1000/git-for-science](https://gitlab.com/jatkinson1000/git-for-science)
+- [github.com/jatkinson1000/git-for-science](https://github.com/jatkinson1000/git-for-science)
+:::
+:::
+::: {.column width="50%"}
+#### Licensing
+
+Except where otherwise noted, these presentation materials are licensed under the Creative Commons
+[Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/legalcode) ([CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)) License.
+
+![]( https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc.eu.svg ){width=40% fig-align="center"}
+
+Vectors and icons by [SVG Repo](https://www.svgrepo.com)
+used under [CC0(1.0)](https://creativecommons.org/publicdomain/zero/1.0/deed.en)
+:::
+::::
+
+
+## Precursors {.smaller}
+
+:::: {.columns}
+::: {.column width="75%"}
+- Be nice ([Python code of conduct](https://www.python.org/psf/conduct/))
+- Ask questions whenever they arise.
+  - Someone else is probably wondering the same thing.
+- I will make mistakes.
+  - Not all of them will be intentional.
+:::
+::::
+
+
+<!-- ============================================================================== -->
+
+{{< include _introduction.qmd >}}
+
+<!----------------------------------------------------------------------------------->
+
+{{< include _basic_commands.qmd >}}
+
+<!-- ============================================================================== -->
+
+
+# How does this help in science?
+
+## Exercise {.smaller}
+
+You are doing some work on pendula and your colleague says they have written some code
+that solves the equations and they can share with you.\
+This is made easy by the fact that it is on git!\
+Let's see how we get on...
+
+Go to the workshop repository:
+
+- GitHub:  [github.com/jatkinson1000/git-for-science](https://github.com/jatkinson1000/git-for-science)
+- GitLab: [gitlab.com/jatkinson1000/git-for-science](https://gitlab.com/jatkinson1000/git-for-science)
+
+If you have an account then `fork` the repository and clone your fork.\
+If you do not have an account `clone` my repository.
+
+Take a look around, how useful is this?^[Since we are good python users we will use a
+[virtual environment](https://docs.python.org/3/tutorial/venv.html).
+Can we play with these commands in the repl?]
+
+<!-- ============================================================================== -->
+
+<!-- Section on README, License, and .gitignore and how to add on GitLab/Hub -->
+# Repository Files
+
+{{< include _files_README.qmd >}}
+{{< include _files_LICENSE.qmd >}}
+{{< include _files_gitignore.qmd >}}
+
+<!-- ============================================================================== -->
+
+<!-- Section on issues, branches, pull requests, and code review -->
+# Git Workflow
+
+{{< include _workflow_issues.qmd >}}
+{{< include _workflow_branches.qmd >}}
+
+## Aside - Commit Messages {.smaller}
+
+![](images/bad_commit_messages.jpg){.absolute left=0% width=40%}
+
+::: {.fragment}
+![](images/good_commit_messages.jpg){.absolute left=45% width=40%}
+:::
+
+{{< include _workflow_merge_requests.qmd >}}
+{{< include _workflow_code_review.qmd >}}
+
+<!-- ============================================================================== -->
+
+
+# Closing
+
+## Summary {.smaller}
+
+git is not just a series of backups, it is a project management system.
+
+\
+
+:::: {.columns}
+::: {.column width="50%"}
+- Improve your repositories:
+  - README.md
+  - LICENSE
+  - .gitignore
+
+- Use branches:
+  - Separate workflows
+  - Organise project
+:::
+::: {.column width="50%"}
+- Make full use of GitLab/GitHub features:
+  - Helper tools
+  - Issues
+  - Pull Requests
+  - Code review:
+    - Learn, spot bugs, improve re-useability
+:::
+::::
+
+## Where can I learn more? {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+- References and links in these slides
+- [Pro Git book](https://git-scm.com/book/en/v2)
+- If something has gone really wrong: [ohshitgit.com](https://ohshitgit.com/)
+- Cambridge RSE Seminars
+  - Weekly presentations in Cambridge and online
+  - See [rse.group.cam.ac.uk](https://rse.group.cam.ac.uk/)
+:::
+::: {.column width="50%"}
+
+- GitButler's 2024 FOSDEM talk "so you think you know git?":
+
+<iframe width="100%" src="https://www.youtube.com/embed/aolI_Rz0ZqY?si=cTgzuRQRB65STBGD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+:::
+::::
+
+## Thanks
+
+:::: {.columns}
+
+::: {.column width="20%"}
+Get in touch:
+:::
+::: {.column width="80%"}
+{{< fa pencil >}} \ Jack Atkinson
+
+{{< fa solid globe >}} \ [jackatkinson.net](https://jackatkinson.net)
+
+{{< fa solid envelope >}} \ [jwa34[AT]cam.ac.uk](mailto:jwa34@cam.ac.uk)
+
+{{< fa brands github >}} \ [jatkinson1000](https://github.com/jatkinson1000)
+
+{{< fa brands mastodon >}} \ [\@jatkinson1000\@fosstodon.org](https://fosstodon.org/@jatkinson1000)
+:::
+::::
+
+
+## References {.smaller}
+
+::: {#refs}
+:::
+
+Plus other links throughout the slides.

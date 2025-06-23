@@ -1,0 +1,191 @@
+<!----------------------------------------------------------------------------------->
+
+## Branches {.smaller}
+
+So far we have been using the `main` branch in everything we do.
+
+\
+
+Our commits look something like this:
+
+```{mermaid}
+    %%{init: {'theme': 'dark',
+              'gitGraph': {'rotateCommitLabel': true},
+              'themeVariables': {
+                  'commitLabelBackground': '#bbbbbb',
+                  'commitLabelColor': '#ffffff'
+    } } }%%
+    gitGraph
+       commit id: "1-ad4e"
+       commit id: "4-ff6b"
+       commit id: "0-fd7f"
+       commit id: "1-2y4f Improve README"
+       commit id: "4-664e Add a LICENSE file"
+       commit id: "6-d3et Add a .gitignore from template"
+```
+
+But what if:
+
+- Someone else is modifying the same files as us?
+- We are working on different aspects/features of the project in parallel?
+- We find a bug and need to quickly fix it?
+
+<!----------------------------------------------------------------------------------->
+
+## Branches {.smaller}
+
+Branches help with all of the aforementioned situations, but are a sensible way to
+organise your work even if you are the only contributor.
+
+:::: {.columns}
+::: {.column width=55%}
+```{mermaid}
+    %%{init: {'theme': 'dark',
+              'gitGraph': {'rotateCommitLabel': true},
+              'themeVariables': {
+                  'commitLabelBackground': '#bbbbbb',
+                  'commitLabelColor': '#ffffff'
+    } } }%%
+    gitGraph
+       commit id: "4-ff6b"
+       commit id: "0-fd7f"
+       commit id: "fea 1.a"
+       commit id: "fea 1.b"
+       commit id: "fea 1.c"
+       commit id: "fea 1.d"
+       commit id: "5-af6f"
+```
+
+Conduct development in branches and merged into main when completed:
+
+```{mermaid}
+    %%{init: {'theme': 'dark',
+              'gitGraph': {'rotateCommitLabel': true},
+              'themeVariables': {
+                  'commitLabelBackground': '#bbbbbb',
+                  'commitLabelColor': '#ffffff'
+    } } }%%
+    gitGraph
+       commit id: "4-ff6b"
+       commit id: "0-fd7f"
+       branch feature
+       commit id: "fea 1.a"
+       commit id: "fea 1.b"
+       commit id: "fea 1.c"
+       commit id: "fea 1.d"
+       checkout main
+       merge feature
+       commit id: "5-af6f"
+```
+:::
+::: {.column width=45%}
+
+- `git branch <branchname>`
+  - Creates new branch _branchname_ from current point
+- `git checkout <branchname>`
+  - move to branch _branchname_
+  - Updates local files - [beware](#a-warning)
+- `git merge <branchname>`
+  - Tie the _branchname_ branch into the current checked out branch with a merge
+    commit.^[Again, GitHub and GitLab have nice visual helpers for doing this which we can discuss.]
+:::
+::::
+
+<!----------------------------------------------------------------------------------->
+
+## Branches {.smaller}
+
+This comes into its own when working concurrently on different features.\
+**git is not just about backups -- it is about project organisation.**
+
+::: {.fragment}
+This way danger and obscurity lies:
+
+```{mermaid}
+    %%{init: {'theme': 'dark',
+              'gitGraph': {'rotateCommitLabel': true},
+              'themeVariables': {
+                  'commitLabelBackground': '#bbbbbb',
+                  'commitLabelColor': '#ffffff'
+    } } }%%
+    gitGraph
+       commit id: "4-ff6b"
+       commit id: "0-fd7f"
+       commit id: "fea 1.a"
+       commit id: "fea 1.b"
+       commit id: "fea 2.a"
+       commit id: "fea 1.c"
+       commit id: "fea 2.b"
+       commit id: "5-af6f"
+       commit id: "1-ad4e"
+```
+:::
+
+::: {.fragment}
+This is manageable and _understandable_:
+
+```{mermaid}
+    %%{init: {'theme': 'dark',
+              'gitGraph': {'rotateCommitLabel': true},
+              'themeVariables': {
+                  'commitLabelBackground': '#bbbbbb',
+                  'commitLabelColor': '#ffffff'
+    } } }%%
+    gitGraph
+       commit id: "4-ff6b"
+       commit id: "0-fd7f"
+       branch feature_1
+       commit id: "fea 1.a"
+       commit id: "fea 1.b"
+       checkout main
+       branch feature_2
+       commit id: "fea 2.a"
+       checkout feature_1
+       commit id: "fea 1.c"
+       checkout main
+       merge feature_1
+       checkout feature_2
+       commit id: "fea 2.b"
+       checkout main
+       merge feature_2
+       commit id: "5-af6f"
+       commit id: "1-ad4e"
+```
+:::
+
+<!----------------------------------------------------------------------------------->
+
+## Branches {.smaller}
+
+The examples so far have been quite simple, but this gives a good audiovisual example
+of the power of branches:
+
+<iframe width="100%" height="70%" src="https://www.youtube.com/embed/S9Do2p4PwtE?si=aZbDMSksmq2UOfJV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## Exercise - Branches {.smaller}
+
+We want to add a functions to calculate pendulum length from desired period and energy.
+
+\
+
+Create a branch locally and add the new length equation to `pendulum_equations.py`.
+Make sure you add and commit your changes!
+
+Return to `main` and create _another_ new branch to add the energy calculation.
+Again, commit your work.
+
+\
+
+Once you have done this use
+```default
+git push <remote> <branch>
+```
+to push your work up to a remote feature branch.
+
+::: {.aside}
+Note: There are a few different ways to merge branches: "merge", "rebase", "squash".\
+Exploting these is beyond the scope of today's course, but we'd be happy to discuss
+further afterwards.
+:::
+
+<!----------------------------------------------------------------------------------->

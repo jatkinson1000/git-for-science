@@ -1,0 +1,38 @@
+<!----------------------------------------------------------------------------------->
+
+## License {.smaller}
+
+All public codes should have a license attached!
+
+- `LICENSE` file in the main directory
+- Protect ownership
+- Limit liability
+- Clarify what can be done with the code
+  - Public Domain, Permissive, Copyleft
+
+The right selection may depend on your organisation and/or funder.
+
+See [choosealicense.com](https://choosealicense.com/) and the
+[OSI list of licenses](https://opensource.org/licenses) for more information.
+
+GitHub and GitLab contain helpers to easily create popular licenses.
+
+<!----------------------------------------------------------------------------------->
+
+## Exercise - License {.smaller}
+
+Add a license to our _pyndulum_ code.
+
+\
+
+We will use the online helper features of GitHub or GitLab to choose and add a License.
+
+\
+
+Once you have done this don't forget to run:
+```default
+git pull <repo> <branch>
+```
+from your local copy to get these changes locally before you make further updates.
+
+<!----------------------------------------------------------------------------------->

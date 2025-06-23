@@ -1,0 +1,40 @@
+<!----------------------------------------------------------------------------------->
+
+## Issues {.smaller}
+
+Both GitHub and GitLab have methods for tracking issues.
+
+These are useful for organising work.
+
+- managing separate tasks
+- logging new issues as they arise
+- tracking and scheduling development
+
+Example issue log on GitHub: [Cambridge-ICCS/FTorch](https://github.com/Cambridge-ICCS/FTorch/issues)\
+
+::: {.aside}
+NOTE: Issues are part of GitHub/GitLab, NOT the git repository.\
+They will not be kept if you move the project elsewhere and do not appear on your
+local system.
+:::
+
+<!----------------------------------------------------------------------------------->
+
+## Exercise - Issues {.smaller}
+
+It would enhance the _pyndulum_ code if we added functions to calculate:
+
+- pendulum total energy, and
+- pendulum length from desired period.
+
+\
+
+We will open issues for these on the online repository.
+
+::: {.aside}
+Extension: Beyond the scope of today's course you can also use
+[GitHub Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects)
+to further organise your work.
+:::
+
+<!----------------------------------------------------------------------------------->

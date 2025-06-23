@@ -1,0 +1,175 @@
+## The basic commands {.smaller}
+
+:::: {.columns}
+::: {.column width=50%}
+- `git clone <repo> [<dir>]`
+  - Clone a repository into a new directory
+:::
+::: {.column width=50%}
+```{.shell code-line-numbers=""}
+$ git clone git@github.com:jatkinson1000/git-for-science.github git4sci
+Cloning into 'git4sci'...
+remote: Enumerating objects: 42, done.
+remote: Counting objects: 100% (42/42), done.
+remote: Compressing objects: 100% (39/39), done.
+remote: Total 42 (delta 26), reused 31 (delta 15), pack-reused 0
+Receiving objects: 100% (42/42), 69.62 MiB | 5.64 MiB/s, done.
+Resolving deltas: 100% (26/26), done.
+$
+$ cd git4sci/
+$
+$ echo "This is a new file." > newfile.txt
+$
+```
+:::
+::::
+
+## The basic commands {.smaller}
+
+:::: {.columns}
+::: {.column width=50%}
+- `git clone <repo> [<dir>]`
+  - Clone a repository into a new directory
+
+- `git status`
+  - Check the state of the directory
+
+- `git add <filepath>`
+  - Update the index with any changes
+:::
+::: {.column width=50%}
+```{.shell code-line-numbers=""}
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        newfile.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+$
+$ git add newfile.txt
+$
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   newfile.txt
+$
+```
+:::
+::::
+
+## The basic commands {.smaller}
+
+:::: {.columns}
+::: {.column width=50%}
+- `git clone <repo> [<dir>]`
+  - Clone a repository into a new directory
+
+- `git status`
+  - Check the state of the directory
+
+- `git add <filepath>`
+  - Update the index with any changes
+
+- `git commit`
+  - `git commit -m <message>`
+  - Commit to record changes in the index
+:::
+::: {.column width=50%}
+```{.shell code-line-numbers=""}
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   newfile.txt
+
+$
+$ git commit -m "Add newfile with placeholder text."
+ 1 file changed, 1 insertion(+)
+ create mode 100644 newfile.txt
+$
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+$
+```
+:::
+::::
+
+## The basic commands {.smaller}
+
+:::: {.columns}
+::: {.column width=50%}
+- `git clone <repo> [<dir>]`
+  - Clone a repository into a new directory
+
+- `git status`
+  - Check the state of the directory
+
+- `git add <filepath>`
+  - Update the index with any changes
+
+- `git commit`
+  - `git commit -m <message>`
+  - Commit to record changes in the index
+
+- `git push <remote> <branch>`
+  - Send your locally committed changes to the remote repo
+:::
+::: {.column width=50%}
+```{.shell code-line-numbers=""}
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+$
+$ git push origin main
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (8/8), 1.89 KiB | 1.89 MiB/s, done.
+Total 8 (delta 7), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (7/7), completed with 7 local objects.
+remote:
+To github.com:jatkinson1000/git-for-science.git
+   7647d3a..7ab12ff  main -> main
+$
+```
+:::
+::::
+
+
+## The git atlas {.smaller}
+
+**Locations**
+
+- Workspace
+- Staging area _or_ index
+- Local repo
+- Remote repo
+- Stash
+
+These (and more) can be explored in Andrew Peterson's
+[Interactive git cheat sheet](https://ndpsoftware.com/git-cheatsheet.html)
+
+
+## A Warning {.smaller}
+
+![]( images/lost_work_b0rk.jpg )
+
+:::{.attribution}
+[Julia Evans - \@b0rk](https://fosstodon.org/@b0rk@jvns.ca/111920509893059355)
+:::
