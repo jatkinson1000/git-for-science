@@ -17,7 +17,7 @@ This material is designed to be delivered as either a live demonstration or as
 a code-along with participants.
 
 There is an accompanying set of slides which can be viewed at
-[jackatkinson.net/slides](https://jackatkinson.net/slides/git_for_science.html).
+[jatkinson1000.github.io/git-for-science](https://jatkinson1000.github.io/git-for-science).
 The code for generating these is available in the [`slides/`](slides/) directory.
 
 A complete walkthrough for delivering the workshop, with references to the slides,

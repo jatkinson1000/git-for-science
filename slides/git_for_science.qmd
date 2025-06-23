@@ -34,7 +34,7 @@ bibliography: references.bib
 #### Slides and Materials
 
 To access links or follow on your own device these slides can be found at:  
-[https://jackatkinson.net/slides](https://jackatkinson.net/slides)
+[jatkinson1000.github.io/git-for-science](https://jatkinson1000.github.io/git-for-science)
 
 \
 
