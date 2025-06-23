@@ -1,0 +1,37 @@
+<!----------------------------------------------------------------------------------->
+
+## .gitignore {.smaller}
+
+It is a good idea to add a `.gitignore` file to your projects:
+
+- A list of file patterns that will be skipped over by git.
+- Makes it easier for us to see through to what is important.
+- Used for:
+  - junk that shouldn't be in there - the infamous `.DS_store`
+  - build files - `mycode.o` or `mymodule.mod` etc.
+  - large files - `50_year_run.nc` or `my_thesis.pdf` etc.
+  - keeping sensitive information out of public^[If you have confidential information
+    you should probably be doing more than .gitignore!]
+
+Again, GitHub and GitLab contain helpers and templates to create .gitignore.
+
+<!----------------------------------------------------------------------------------->
+
+## Exercise - .gitignore {.smaller}
+
+Add a .gitignore to the _pyndulum_ code?
+
+\
+
+We will use the online helper features of GitHub or GitLab to set up a basic gitignore
+file for a Python code.
+
+\
+
+Again, once you have done this don't forget to run:
+```default
+git pull <repo> <branch>
+```
+from your local copy to get these changes locally before you make further updates.
+
+<!----------------------------------------------------------------------------------->

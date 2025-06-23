@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="git_for_science_files/libs/clipboard/clipboard.min.js"></script>
+<script src="git_for_science_files/libs/quarto-html/tabby.min.js"></script>
+<script src="git_for_science_files/libs/quarto-html/popper.min.js"></script>
+<script src="git_for_science_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="git_for_science_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="git_for_science_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="git_for_science_files/libs/quarto-html/quarto-syntax-highlighting-dark-c3c2c9e745155556954bc4da23476b10.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="git_for_science_files/libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="git_for_science_files/libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.32">
+
+  <meta name="dcterms.date" content="2025-06-23">
+  <title>git for Scientific Software Development</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="git_for_science_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="git_for_science_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #97947a;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #97947a;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2; background-color: #2b2b2b; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #dcc6e0; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #ffd700; } /* Attribute */
+    code span.bn { color: #dcc6e0; } /* BaseN */
+    code span.bu { color: #f5ab35; } /* BuiltIn */
+    code span.cf { color: #ffa07a; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffa07a; } /* Constant */
+    code span.co { color: #d4d0ab; } /* Comment */
+    code span.cv { color: #d4d0ab; font-style: italic; } /* CommentVar */
+    code span.do { color: #d4d0ab; font-style: italic; } /* Documentation */
+    code span.dt { color: #dcc6e0; } /* DataType */
+    code span.dv { color: #dcc6e0; } /* DecVal */
+    code span.er { color: #dcc6e0; } /* Error */
+    code span.ex { color: #ffd700; } /* Extension */
+    code span.fl { color: #f5ab35; } /* Float */
+    code span.fu { color: #ffd700; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; } /* Keyword */
+    code span.op { color: #00e0e0; } /* Operator */
+    code span.ot { color: #ffa07a; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.sc { color: #00e0e0; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #f5ab35; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #d4d0ab; font-style: italic; } /* Warning */
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="git_for_science_files/libs/revealjs/dist/theme/quarto-25857d6307e8a589b9f6a349b010d795.css">
+  <link href="git_for_science_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="git_for_science_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="git_for_science_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="git_for_science_files/libs/revealjs/plugin/reveal-attribution/attribution.css" rel="stylesheet">
+  <link href="git_for_science_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="git_for_science_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="git_for_science_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="git_for_science_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
+</head>
+<body class="quarto-dark">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">git for Scientific Software Development</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Jack Atkinson <a href="https://orcid.org/0000-0001-5001-4812" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
+</div>
+        <p class="quarto-title-affiliation">
+            Senior Research Software Engineer <br> ICCS - University of Cambridge
+          </p>
+    </div>
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Adeleke Bankole <a href="https://orcid.org/0000-0003-2804-5457" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
+</div>
+        <p class="quarto-title-affiliation">
+            Research Software Engineer <br> ICCS - University of Cambridge
+          </p>
+    </div>
+</div>
+
+  <p class="date">2025-06-23</p>
+</section>
+<section id="precursors" class="slide level2 smaller nostretch">
+<h2>Precursors</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h4 id="slides-and-materials">Slides and Materials</h4>
+<p>To access links or follow on your own device these slides can be found at:<br>
+<a href="https://jatkinson1000.github.io/git-for-science">jatkinson1000.github.io/git-for-science</a></p>
+<p><br>
+</p>
+<p>All materials are available at:</p>
+<div class="column" style="font-size: 95%;">
+<ul>
+<li><a href="https://gitlab.com/jatkinson1000/git-for-science">gitlab.com/jatkinson1000/git-for-science</a></li>
+<li><a href="https://github.com/jatkinson1000/git-for-science">github.com/jatkinson1000/git-for-science</a></li>
+</ul>
+</div></div><div class="column" style="width:50%;">
+<h4 id="licensing">Licensing</h4>
+<p>Except where otherwise noted, these presentation materials are licensed under the Creative Commons <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">Attribution-NonCommercial 4.0 International</a> (<a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>) License.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc.eu.svg" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
+<p>Vectors and icons by <a href="https://www.svgrepo.com">SVG Repo</a> used under <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en">CC0(1.0)</a></p>
+</div></div>
+</section>
+<section id="precursors-1" class="slide level2 smaller">
+<h2>Precursors</h2>
+<div class="columns">
+<div class="column" style="width:75%;">
+<ul>
+<li>Be nice (<a href="https://www.python.org/psf/conduct/">Python code of conduct</a>)</li>
+<li>Ask questions whenever they arise.
+<ul>
+<li>Someone else is probably wondering the same thing.</li>
+</ul></li>
+<li>I will make mistakes.
+<ul>
+<li>Not all of them will be intentional.</li>
+</ul></li>
+</ul>
+</div></div>
+<!-- ============================================================================== -->
+</section>
+<section>
+<section id="git-101" class="title-slide slide level1 center">
+<h1>git 101</h1>
+<!----------------------------------------------------------------------------------->
+</section>
+<section id="what-is-git" class="slide level2 smaller">
+<h2>What is git</h2>
+<p>git is a version control system developed by Linus Torvalds.<sup>1</sup></p>
+<p>It tracks changes made to files over time.</p>
+<p><img data-src="images/alice_rabbit_hole.jpg" class="absolute" style="top: 30%; left: 30%; width: 40%; "></p>
+<!----------------------------------------------------------------------------------->
+<aside><ol class="aside-footnotes"><li id="fn1"><p>also the creator of Linux</p></li></ol></aside></section>
+<section id="installation-and-setup" class="slide level2 smaller">
+<h2>Installation and setup</h2>
+<p>Git comes preinstalled on most Linux distributions and macOS.<br>
+You can check it is on your system by running <code>which git</code>.</p>
+<p><br>
+</p>
+<p>If you are on Windows, or do not have git, check the <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">git docs</a><sup>1</sup> or the <a href="https://github.com/git-guides/install-git">GitHub guide</a> to installing git. https://github.com/git-guides/install-git</p>
+<p><br>
+</p>
+<p>Setting up a new git repository is beyond the scope of this talk but involves using the<br>
+<a href="https://git-scm.com/docs/git-init"><code>git --init</code> command</a>.</p>
+<p><br>
+</p>
+<p>We will assume that you have created a repository using an online hosting service (GitLab, GitHub etc.) that provides a nice UI wrapper around the process.</p>
+<!----------------------------------------------------------------------------------->
+<aside><ol class="aside-footnotes"><li id="fn2"><p>As an aside, the official git docs have a… reputation. Although good for reference there are often friendlier resources for learning.</p></li></ol></aside></section>
+<section id="how-does-it-work" class="slide level2 smaller">
+<h2>How does it work?</h2>
+<p>A mental model:</p>
+<ul>
+<li>Each time you <code>commit</code> work git stores it as a <code>diff</code>.
+<ul>
+<li>This shows specific lines of a file and how they changed (<code>+</code>/<code>-</code>).</li>
+<li>This is what you see with the <code>git diff</code> command.</li>
+</ul></li>
+<li><code>diff</code>s are stored in a <code>tree</code>.
+<ul>
+<li>By applying each <code>diff</code> one at a time we can reconstruct files.</li>
+<li>We do not need to do this in order<br>
+see cherry-picking and merge conflicts…</li>
+</ul></li>
+</ul>
+<!----------------------------------------------------------------------------------->
+</section>
+<section id="how-does-it-work-1" class="slide level2 smaller">
+<h2>How does it work?</h2>
+<div class="sourceCode" id="cb1" data-code-line-numbers="|1,3-4|5|5-8,11,12-15,17-19|5-8,9-10,11,16,17-19|"><pre class="sourceCode numberSource shell number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>diff --git a/mycode/functions.py b/mycode/functions.py</span>
+<span id="cb1-2"><a href=""></a>index b784b07..d08024a 100644</span>
+<span id="cb1-3"><a href=""></a>--- a/mycode/functions.py</span>
+<span id="cb1-4"><a href=""></a>+++ b/mycode/functions.py</span>
+<span id="cb1-5"><a href=""></a>@@ -340,11 +341,10 @@ def rootfind_score(</span>
+<span id="cb1-6"><a href=""></a>         fpre = fcur</span>
+<span id="cb1-7"><a href=""></a>         if abs(scur) &gt; delta:</span>
+<span id="cb1-8"><a href=""></a>             xcur += scur</span>
+<span id="cb1-9"><a href=""></a>+        elif sbis &gt; 0:</span>
+<span id="cb1-10"><a href=""></a>+            xcur += delta</span>
+<span id="cb1-11"><a href=""></a>         else:</span>
+<span id="cb1-12"><a href=""></a>-            if sbis &gt; 0:</span>
+<span id="cb1-13"><a href=""></a>-                xcur += delta</span>
+<span id="cb1-14"><a href=""></a>-            else:</span>
+<span id="cb1-15"><a href=""></a>-                xcur -= delta</span>
+<span id="cb1-16"><a href=""></a>+            xcur -= delta</span>
+<span id="cb1-17"><a href=""></a></span>
+<span id="cb1-18"><a href=""></a>         fcur = f_root(xcur, score, rnd)</span>
+<span id="cb1-19"><a href=""></a>         val = xcur</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<ul>
+<li>Famous George Box quote</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="attribution">
+<p><span class="citation" data-cites="Evans_2024_githistory">Evans (<a href="#/references" role="doc-biblioref" onclick="">2024</a>)</span>, <span class="citation" data-cites="Mukerjee_2024_unpacking">Mukerjee (<a href="#/references" role="doc-biblioref" onclick="">2024</a>)</span></p>
+</div>
+<!----------------------------------------------------------------------------------->
+</section>
+<section id="how-does-it-work-2" class="slide level2 smaller">
+<h2>How does it work?</h2>
+<p>Actually:</p>
+<ul>
+<li>Each time you <code>commit</code> work git creates a <code>snapshot</code>
+<ul>
+<li>Contains the commit message and a hash to a <code>tree</code>.</li>
+</ul></li>
+<li>The <code>tree</code> is a list of files in the repo at this commit.
+<ul>
+<li>In reality it is a <code>tree</code> of <code>tree</code>s for efficiency!</li>
+<li>The roots of the tree are <code>pack</code>ed files at time of commit.</li>
+</ul></li>
+<li><code>pack</code>ed files are efficiently compressed.
+<ul>
+<li>And may use <code>delta</code>s which are a bit like <code>diff</code>s.</li>
+</ul></li>
+<li>By tracing the tree and then un<code>pack</code>ing we can reconstruct the repo at a state in time given by the commit hash.</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>Famous George Box quote</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="attribution">
+<p><span class="citation" data-cites="Evans_2024_githistory">Evans (<a href="#/references" role="doc-biblioref" onclick="">2024</a>)</span></p>
+</div>
+<!----------------------------------------------------------------------------------->
+</section>
+<section id="the-basic-commands" class="slide level2 smaller">
+<h2>The basic commands</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><code>git clone &lt;repo&gt; [&lt;dir&gt;]</code>
+<ul>
+<li>Clone a repository into a new directory</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb2" data-code-line-numbers=""><pre class="sourceCode numberSource shell number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>$ git clone git@github.com:jatkinson1000/git-for-science.github git4sci</span>
+<span id="cb2-2"><a href=""></a>Cloning into 'git4sci'...</span>
+<span id="cb2-3"><a href=""></a>remote: Enumerating objects: 42, done.</span>
+<span id="cb2-4"><a href=""></a>remote: Counting objects: 100% (42/42), done.</span>
+<span id="cb2-5"><a href=""></a>remote: Compressing objects: 100% (39/39), done.</span>
+<span id="cb2-6"><a href=""></a>remote: Total 42 (delta 26), reused 31 (delta 15), pack-reused 0</span>
+<span id="cb2-7"><a href=""></a>Receiving objects: 100% (42/42), 69.62 MiB | 5.64 MiB/s, done.</span>
+<span id="cb2-8"><a href=""></a>Resolving deltas: 100% (26/26), done.</span>
+<span id="cb2-9"><a href=""></a>$</span>
+<span id="cb2-10"><a href=""></a>$ cd git4sci/</span>
+<span id="cb2-11"><a href=""></a>$</span>
+<span id="cb2-12"><a href=""></a>$ echo "This is a new file." &gt; newfile.txt</span>
+<span id="cb2-13"><a href=""></a>$</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="the-basic-commands-1" class="slide level2 smaller">
+<h2>The basic commands</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><code>git clone &lt;repo&gt; [&lt;dir&gt;]</code>
+<ul>
+<li>Clone a repository into a new directory</li>
+</ul></li>
+<li><code>git status</code>
+<ul>
+<li>Check the state of the directory</li>
+</ul></li>
+<li><code>git add &lt;filepath&gt;</code>
+<ul>
+<li>Update the index with any changes</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb3" data-code-line-numbers=""><pre class="sourceCode numberSource shell number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>$ git status</span>
+<span id="cb3-2"><a href=""></a>On branch main</span>
+<span id="cb3-3"><a href=""></a>Your branch is up to date with 'origin/main'.</span>
+<span id="cb3-4"><a href=""></a></span>
+<span id="cb3-5"><a href=""></a>Untracked files:</span>
+<span id="cb3-6"><a href=""></a>  (use "git add &lt;file&gt;..." to include in what will be committed)</span>
+<span id="cb3-7"><a href=""></a>        newfile.txt</span>
+<span id="cb3-8"><a href=""></a></span>
+<span id="cb3-9"><a href=""></a>no changes added to commit (use "git add" and/or "git commit -a")</span>
+<span id="cb3-10"><a href=""></a>$</span>
+<span id="cb3-11"><a href=""></a>$ git add newfile.txt</span>
+<span id="cb3-12"><a href=""></a>$</span>
+<span id="cb3-13"><a href=""></a>$ git status</span>
+<span id="cb3-14"><a href=""></a>On branch main</span>
+<span id="cb3-15"><a href=""></a>Your branch is up to date with 'origin/main'.</span>
+<span id="cb3-16"><a href=""></a></span>
+<span id="cb3-17"><a href=""></a>Changes to be committed:</span>
+<span id="cb3-18"><a href=""></a>  (use "git restore --staged &lt;file&gt;..." to unstage)</span>
+<span id="cb3-19"><a href=""></a>        new file:   newfile.txt</span>
+<span id="cb3-20"><a href=""></a>$</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="the-basic-commands-2" class="slide level2 smaller">
+<h2>The basic commands</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><code>git clone &lt;repo&gt; [&lt;dir&gt;]</code>
+<ul>
+<li>Clone a repository into a new directory</li>
+</ul></li>
+<li><code>git status</code>
+<ul>
+<li>Check the state of the directory</li>
+</ul></li>
+<li><code>git add &lt;filepath&gt;</code>
+<ul>
+<li>Update the index with any changes</li>
+</ul></li>
+<li><code>git commit</code>
+<ul>
+<li><code>git commit -m &lt;message&gt;</code></li>
+<li>Commit to record changes in the index</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb4" data-code-line-numbers=""><pre class="sourceCode numberSource shell number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>$ git status</span>
+<span id="cb4-2"><a href=""></a>On branch main</span>
+<span id="cb4-3"><a href=""></a>Your branch is up to date with 'origin/main'.</span>
+<span id="cb4-4"><a href=""></a></span>
+<span id="cb4-5"><a href=""></a>Changes to be committed:</span>
+<span id="cb4-6"><a href=""></a>  (use "git restore --staged &lt;file&gt;..." to unstage)</span>
+<span id="cb4-7"><a href=""></a>        new file:   newfile.txt</span>
+<span id="cb4-8"><a href=""></a></span>
+<span id="cb4-9"><a href=""></a>$</span>
+<span id="cb4-10"><a href=""></a>$ git commit -m "Add newfile with placeholder text."</span>
+<span id="cb4-11"><a href=""></a> 1 file changed, 1 insertion(+)</span>
+<span id="cb4-12"><a href=""></a> create mode 100644 newfile.txt</span>
+<span id="cb4-13"><a href=""></a>$</span>
+<span id="cb4-14"><a href=""></a>$ git status</span>
+<span id="cb4-15"><a href=""></a>On branch main</span>
+<span id="cb4-16"><a href=""></a>Your branch is ahead of 'origin/main' by 1 commit.</span>
+<span id="cb4-17"><a href=""></a>  (use "git push" to publish your local commits)</span>
+<span id="cb4-18"><a href=""></a></span>
+<span id="cb4-19"><a href=""></a>no changes added to commit (use "git add" and/or "git commit -a")</span>
+<span id="cb4-20"><a href=""></a>$</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="the-basic-commands-3" class="slide level2 smaller">
+<h2>The basic commands</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><code>git clone &lt;repo&gt; [&lt;dir&gt;]</code>
+<ul>
+<li>Clone a repository into a new directory</li>
+</ul></li>
+<li><code>git status</code>
+<ul>
+<li>Check the state of the directory</li>
+</ul></li>
+<li><code>git add &lt;filepath&gt;</code>
+<ul>
+<li>Update the index with any changes</li>
+</ul></li>
+<li><code>git commit</code>
+<ul>
+<li><code>git commit -m &lt;message&gt;</code></li>
+<li>Commit to record changes in the index</li>
+</ul></li>
+<li><code>git push &lt;remote&gt; &lt;branch&gt;</code>
+<ul>
+<li>Send your locally committed changes to the remote repo</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb5" data-code-line-numbers=""><pre class="sourceCode numberSource shell number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>$ git status</span>
+<span id="cb5-2"><a href=""></a>On branch main</span>
+<span id="cb5-3"><a href=""></a>Your branch is ahead of 'origin/main' by 1 commit.</span>
+<span id="cb5-4"><a href=""></a>  (use "git push" to publish your local commits)</span>
+<span id="cb5-5"><a href=""></a></span>
+<span id="cb5-6"><a href=""></a>no changes added to commit (use "git add" and/or "git commit -a")</span>
+<span id="cb5-7"><a href=""></a>$</span>
+<span id="cb5-8"><a href=""></a>$ git push origin main</span>
+<span id="cb5-9"><a href=""></a>Enumerating objects: 3, done.</span>
+<span id="cb5-10"><a href=""></a>Counting objects: 100% (3/3), done.</span>
+<span id="cb5-11"><a href=""></a>Delta compression using up to 8 threads</span>
+<span id="cb5-12"><a href=""></a>Compressing objects: 100% (8/8), done.</span>
+<span id="cb5-13"><a href=""></a>Writing objects: 100% (8/8), 1.89 KiB | 1.89 MiB/s, done.</span>
+<span id="cb5-14"><a href=""></a>Total 8 (delta 7), reused 0 (delta 0), pack-reused 0</span>
+<span id="cb5-15"><a href=""></a>remote: Resolving deltas: 100% (7/7), completed with 7 local objects.</span>
+<span id="cb5-16"><a href=""></a>remote:</span>
+<span id="cb5-17"><a href=""></a>To github.com:jatkinson1000/git-for-science.git</span>
+<span id="cb5-18"><a href=""></a>   7647d3a..7ab12ff  main -&gt; main</span>
+<span id="cb5-19"><a href=""></a>$</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="the-git-atlas" class="slide level2 smaller">
+<h2>The git atlas</h2>
+<p><strong>Locations</strong></p>
+<ul>
+<li>Workspace</li>
+<li>Staging area <em>or</em> index</li>
+<li>Local repo</li>
+<li>Remote repo</li>
+<li>Stash</li>
+</ul>
+<p>These (and more) can be explored in Andrew Peterson’s <a href="https://ndpsoftware.com/git-cheatsheet.html">Interactive git cheat sheet</a></p>
+</section>
+<section id="a-warning" class="slide level2 smaller">
+<h2>A Warning</h2>
+
+<img data-src="images/lost_work_b0rk.jpg" class="r-stretch"><div class="attribution">
+<p><a href="https://fosstodon.org/@b0rk@jvns.ca/111920509893059355">Julia Evans - @b0rk</a></p>
+</div>
+<!-- ============================================================================== -->
+</section></section>
+<section>
+<section id="how-does-this-help-in-science" class="title-slide slide level1 center">
+<h1>How does this help in science?</h1>
+
+</section>
+<section id="exercise" class="slide level2 smaller">
+<h2>Exercise</h2>
+<p>You are doing some work on pendula and your colleague says they have written some code that solves the equations and they can share with you.<br>
+This is made easy by the fact that it is on git!<br>
+Let’s see how we get on…</p>
+<p>Go to the workshop repository:</p>
+<ul>
+<li>GitHub: <a href="https://github.com/jatkinson1000/git-for-science">github.com/jatkinson1000/git-for-science</a></li>
+<li>GitLab: <a href="https://gitlab.com/jatkinson1000/git-for-science">gitlab.com/jatkinson1000/git-for-science</a></li>
+</ul>
+<p>If you have an account then <code>fork</code> the repository and clone your fork.<br>
+If you do not have an account <code>clone</code> my repository.</p>
+<p>Take a look around, how useful is this?<sup>1</sup></p>
+<!-- ============================================================================== -->
+<!-- Section on README, License, and .gitignore and how to add on GitLab/Hub -->
+<aside><ol class="aside-footnotes"><li id="fn3"><p>Since we are good python users we will use a <a href="https://docs.python.org/3/tutorial/venv.html">virtual environment</a>. Can we play with these commands in the repl?</p></li></ol></aside></section></section>
+<section>
+<section id="repository-files" class="title-slide slide level1 center">
+<h1>Repository Files</h1>
+<!----------------------------------------------------------------------------------->
+</section>
+<section id="readme" class="slide level2 smaller">
+<h2>README</h2>
+<ul>
+<li>A file in the main directory of your repository.</li>
+<li>The entry point for new users.</li>
+<li>Helps to ensure your code is used properly.</li>
+<li>Today encouraged to be written in <a href="https://www.markdownguide.org/">Markdown</a> as <code>README.md</code>.</li>
+</ul>
+<!----------------------------------------------------------------------------------->
+</section>
+<section id="readme---examples" class="slide level2 smaller">
+<h2>README - examples</h2>
+<div class="fragment fade-in-then-out">
+<p><img data-src="images/terrible_readme.jpg" class="absolute" style="left: 25%; width: 50%; "></p>
+</div>
+<div class="fragment fade-in-then-out">
+<p><img data-src="images/bad_readme.jpg" class="absolute" style="left: 25%; width: 50%; "></p>
+</div>
+<div class="fragment">
+<p><img data-src="images/good_readme_1.jpg" class="absolute" style="left: 0%; width: 48%; "> <img data-src="images/good_readme_2.jpg" class="absolute" style="right: 0%; width: 48%; "></p>
+</div>
+<!----------------------------------------------------------------------------------->
+</section>
+<section id="readme-1" class="slide level2 smaller">
+<h2>README</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h4 id="essential">Essential</h4>
+<ul>
+<li>Name</li>
+<li>Short summary</li>
+<li>Install instructions</li>
+<li>Usage/getting-started instructions</li>
+<li>Information about contributing</li>
+<li>Authors and Acknowledgment</li>
+<li>License information</li>
+</ul>
+</div><div class="column">
+<h4 id="nice-to-have">Nice to have:</h4>
+<ul>
+<li>References to key papers/materials</li>
+<li>Badges</li>
+<li>Examples</li>
+<li>Link to docs</li>
+<li>List of users</li>
+<li>FAQ</li>
+<li>See <a href="https://readme.so">readme.so/</a> for a longer list</li>
+</ul>
+</div></div>
+<p><a href="https://www.makeareadme.com/">makeareadme.com</a> and <a href="https://readme.so/">readme.so</a> are great tools to help.<br>
+<br>
+Add as soon as you can in a project and update as you go along.</p>
+<!----------------------------------------------------------------------------------->
+</section>
+<section id="exercise---readme" class="slide level2 smaller">
+<h2>Exercise - README</h2>
+<p>How can we improve the README in the <em>pyndulum</em> code?</p>
+<p>Edit the <code>README.md</code> file to improve it.</p>
+<p>Add and commit your changes.</p>
+<p>If you are working from a fork then push to see these changes reflected on the online remote.</p>
+<!----------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------->
+</section>
+<section id="license" class="slide level2 smaller">
+<h2>License</h2>
+<p>All public codes should have a license attached!</p>
+<ul>
+<li><code>LICENSE</code> file in the main directory</li>
+<li>Protect ownership</li>
+<li>Limit liability</li>
+<li>Clarify what can be done with the code
+<ul>
+<li>Public Domain, Permissive, Copyleft</li>
+</ul></li>
+</ul>
+<p>The right selection may depend on your organisation and/or funder.</p>
+<p>See <a href="https://choosealicense.com/">choosealicense.com</a> and the <a href="https://opensource.org/licenses">OSI list of licenses</a> for more information.</p>
+<p>GitHub and GitLab contain helpers to easily create popular licenses.</p>
+<!----------------------------------------------------------------------------------->
+</section>
+<section id="exercise---license" class="slide level2 smaller">
+<h2>Exercise - License</h2>
+<p>Add a license to our <em>pyndulum</em> code.</p>
+<p><br>
+</p>
+<p>We will use the online helper features of GitHub or GitLab to choose and add a License.</p>
+<p><br>
+</p>
+<p>Once you have done this don’t forget to run:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="" aria-hidden="true" tabindex="-1"></a>git pull &lt;repo&gt; &lt;branch&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>from your local copy to get these changes locally before you make further updates.</p>
+<!----------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------->
+</section>
+<section id="gitignore" class="slide level2 smaller">
+<h2>.gitignore</h2>
+<p>It is a good idea to add a <code>.gitignore</code> file to your projects:</p>
+<ul>
+<li>A list of file patterns that will be skipped over by git.</li>
+<li>Makes it easier for us to see through to what is important.</li>
+<li>Used for:
+<ul>
+<li>junk that shouldn’t be in there - the infamous <code>.DS_store</code></li>
+<li>build files - <code>mycode.o</code> or <code>mymodule.mod</code> etc.</li>
+<li>large files - <code>50_year_run.nc</code> or <code>my_thesis.pdf</code> etc.</li>
+<li>keeping sensitive information out of public<sup>1</sup></li>
+</ul></li>
+</ul>
+<p>Again, GitHub and GitLab contain helpers and templates to create .gitignore.</p>
+<!----------------------------------------------------------------------------------->
+<aside><ol class="aside-footnotes"><li id="fn4"><p>If you have confidential information you should probably be doing more than .gitignore!</p></li></ol></aside></section>
+<section id="exercise---.gitignore" class="slide level2 smaller">
+<h2>Exercise - .gitignore</h2>
+<p>Add a .gitignore to the <em>pyndulum</em> code?</p>
+<p><br>
+</p>
+<p>We will use the online helper features of GitHub or GitLab to set up a basic gitignore file for a Python code.</p>
+<p><br>
+</p>
+<p>Again, once you have done this don’t forget to run:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb7-1"><a href="" aria-hidden="true" tabindex="-1"></a>git pull &lt;repo&gt; &lt;branch&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>from your local copy to get these changes locally before you make further updates.</p>
+<!----------------------------------------------------------------------------------->
+<!-- ============================================================================== -->
+<!-- Section on issues, branches, pull requests, and code review -->
+</section></section>
+<section>
+<section id="git-workflow" class="title-slide slide level1 center">
+<h1>Git Workflow</h1>
+<!----------------------------------------------------------------------------------->
+</section>
+<section id="issues" class="slide level2 smaller">
+<h2>Issues</h2>
+<p>Both GitHub and GitLab have methods for tracking issues.</p>
+<p>These are useful for organising work.</p>
+<ul>
+<li>managing separate tasks</li>
+<li>logging new issues as they arise</li>
+<li>tracking and scheduling development</li>
+</ul>
+<p>Example issue log on GitHub: <a href="https://github.com/Cambridge-ICCS/FTorch/issues">Cambridge-ICCS/FTorch</a><br>
+</p>
+
+<!----------------------------------------------------------------------------------->
+<aside><div>
+<p>NOTE: Issues are part of GitHub/GitLab, NOT the git repository.<br>
+They will not be kept if you move the project elsewhere and do not appear on your local system.</p>
+</div></aside></section>
+<section id="exercise---issues" class="slide level2 smaller">
+<h2>Exercise - Issues</h2>
+<p>It would enhance the <em>pyndulum</em> code if we added functions to calculate:</p>
+<ul>
+<li>pendulum total energy, and</li>
+<li>pendulum length from desired period.</li>
+</ul>
+<p><br>
+</p>
+<p>We will open issues for these on the online repository.</p>
+
+<!----------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------->
+<aside><div>
+<p>Extension: Beyond the scope of today’s course you can also use <a href="https://docs.github.com/en/issues/planning-and-tracking-with-projects">GitHub Projects</a> to further organise your work.</p>
+</div></aside></section>
+<section id="branches" class="slide level2 smaller">
+<h2>Branches</h2>
+<p>So far we have been using the <code>main</code> branch in everything we do.</p>
+<p><br>
+</p>
+<p>Our commits look something like this:</p>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">    %%{init: {'theme': 'dark',
+              'gitGraph': {'rotateCommitLabel': true},
+              'themeVariables': {
+                  'commitLabelBackground': '#bbbbbb',
+                  'commitLabelColor': '#ffffff'
+    } } }%%
+    gitGraph
+       commit id: "1-ad4e"
+       commit id: "4-ff6b"
+       commit id: "0-fd7f"
+       commit id: "1-2y4f Improve README"
+       commit id: "4-664e Add a LICENSE file"
+       commit id: "6-d3et Add a .gitignore from template"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>But what if:</p>
+<ul>
+<li>Someone else is modifying the same files as us?</li>
+<li>We are working on different aspects/features of the project in parallel?</li>
+<li>We find a bug and need to quickly fix it?</li>
+</ul>
+<!----------------------------------------------------------------------------------->
+</section>
+<section id="branches-1" class="slide level2 smaller">
+<h2>Branches</h2>
+<p>Branches help with all of the aforementioned situations, but are a sensible way to organise your work even if you are the only contributor.</p>
+<div class="columns">
+<div class="column" style="width:55%;">
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">    %%{init: {'theme': 'dark',
+              'gitGraph': {'rotateCommitLabel': true},
+              'themeVariables': {
+                  'commitLabelBackground': '#bbbbbb',
+                  'commitLabelColor': '#ffffff'
+    } } }%%
+    gitGraph
+       commit id: "4-ff6b"
+       commit id: "0-fd7f"
+       commit id: "fea 1.a"
+       commit id: "fea 1.b"
+       commit id: "fea 1.c"
+       commit id: "fea 1.d"
+       commit id: "5-af6f"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Conduct development in branches and merged into main when completed:</p>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">    %%{init: {'theme': 'dark',
+              'gitGraph': {'rotateCommitLabel': true},
+              'themeVariables': {
+                  'commitLabelBackground': '#bbbbbb',
+                  'commitLabelColor': '#ffffff'
+    } } }%%
+    gitGraph
+       commit id: "4-ff6b"
+       commit id: "0-fd7f"
+       branch feature
+       commit id: "fea 1.a"
+       commit id: "fea 1.b"
+       commit id: "fea 1.c"
+       commit id: "fea 1.d"
+       checkout main
+       merge feature
+       commit id: "5-af6f"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:45%;">
+<ul>
+<li><code>git branch &lt;branchname&gt;</code>
+<ul>
+<li>Creates new branch <em>branchname</em> from current point</li>
+</ul></li>
+<li><code>git checkout &lt;branchname&gt;</code>
+<ul>
+<li>move to branch <em>branchname</em></li>
+<li>Updates local files - <a href="#/a-warning">beware</a></li>
+</ul></li>
+<li><code>git merge &lt;branchname&gt;</code>
+<ul>
+<li>Tie the <em>branchname</em> branch into the current checked out branch with a merge commit.<sup>1</sup></li>
+</ul></li>
+</ul>
+</div></div>
+<!----------------------------------------------------------------------------------->
+<aside><ol class="aside-footnotes"><li id="fn5"><p>Again, GitHub and GitLab have nice visual helpers for doing this which we can discuss.</p></li></ol></aside></section>
+<section id="branches-2" class="slide level2 smaller">
+<h2>Branches</h2>
+<p>This comes into its own when working concurrently on different features.<br>
+<strong>git is not just about backups – it is about project organisation.</strong></p>
+<div class="fragment">
+<p>This way danger and obscurity lies:</p>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">    %%{init: {'theme': 'dark',
+              'gitGraph': {'rotateCommitLabel': true},
+              'themeVariables': {
+                  'commitLabelBackground': '#bbbbbb',
+                  'commitLabelColor': '#ffffff'
+    } } }%%
+    gitGraph
+       commit id: "4-ff6b"
+       commit id: "0-fd7f"
+       commit id: "fea 1.a"
+       commit id: "fea 1.b"
+       commit id: "fea 2.a"
+       commit id: "fea 1.c"
+       commit id: "fea 2.b"
+       commit id: "5-af6f"
+       commit id: "1-ad4e"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>This is manageable and <em>understandable</em>:</p>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">    %%{init: {'theme': 'dark',
+              'gitGraph': {'rotateCommitLabel': true},
+              'themeVariables': {
+                  'commitLabelBackground': '#bbbbbb',
+                  'commitLabelColor': '#ffffff'
+    } } }%%
+    gitGraph
+       commit id: "4-ff6b"
+       commit id: "0-fd7f"
+       branch feature_1
+       commit id: "fea 1.a"
+       commit id: "fea 1.b"
+       checkout main
+       branch feature_2
+       commit id: "fea 2.a"
+       checkout feature_1
+       commit id: "fea 1.c"
+       checkout main
+       merge feature_1
+       checkout feature_2
+       commit id: "fea 2.b"
+       checkout main
+       merge feature_2
+       commit id: "5-af6f"
+       commit id: "1-ad4e"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+<!----------------------------------------------------------------------------------->
+</section>
+<section id="branches-3" class="slide level2 smaller">
+<h2>Branches</h2>
+<p>The examples so far have been quite simple, but this gives a good audiovisual example of the power of branches:</p>
+<iframe width="100%" height="70%" src="https://www.youtube.com/embed/S9Do2p4PwtE?si=aZbDMSksmq2UOfJV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
+</iframe>
+</section>
+<section id="exercise---branches" class="slide level2 smaller">
+<h2>Exercise - Branches</h2>
+<p>We want to add a functions to calculate pendulum length from desired period and energy.</p>
+<p><br>
+</p>
+<p>Create a branch locally and add the new length equation to <code>pendulum_equations.py</code>. Make sure you add and commit your changes!</p>
+<p>Return to <code>main</code> and create <em>another</em> new branch to add the energy calculation. Again, commit your work.</p>
+<p><br>
+</p>
+<p>Once you have done this use</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a href="" aria-hidden="true" tabindex="-1"></a>git push &lt;remote&gt; &lt;branch&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>to push your work up to a remote feature branch.</p>
+
+<!----------------------------------------------------------------------------------->
+<aside><div>
+<p>Note: There are a few different ways to merge branches: “merge”, “rebase”, “squash”.<br>
+Exploting these is beyond the scope of today’s course, but we’d be happy to discuss further afterwards.</p>
+</div></aside></section>
+<section id="aside---commit-messages" class="slide level2 smaller">
+<h2>Aside - Commit Messages</h2>
+<p><img data-src="images/bad_commit_messages.jpg" class="absolute" style="left: 0%; width: 40%; "></p>
+<div class="fragment">
+<p><img data-src="images/good_commit_messages.jpg" class="absolute" style="left: 45%; width: 40%; "></p>
+</div>
+<!----------------------------------------------------------------------------------->
+</section>
+<section id="mergepull-requests" class="slide level2 smaller">
+<h2>Merge/Pull Requests</h2>
+<ul>
+<li><p>Another feature of GitHub/GitLab.<sup>1</sup></p></li>
+<li><p>A friendlier, graphical way of merging branches</p></li>
+<li><p>Can be linked to GitHub/GitLab issues</p></li>
+<li><p>A method of tracking progress</p>
+<ul>
+<li>can be opened after the first push</li>
+<li>a place for collaborative discussion.<br>
+An example: <a href="https://github.com/m2lines/convection-parameterization-in-CAM/pull/44">convection-parameterization-in-CAM/pull/44</a></li>
+</ul></li>
+</ul>
+<!----------------------------------------------------------------------------------->
+<aside><ol class="aside-footnotes"><li id="fn6"><p>Not be part of your local git repository, but tied to the online provider.</p></li></ol></aside></section>
+<section id="mergepull-requests-1" class="slide level2 smaller">
+<h2>Merge/Pull Requests</h2>
+<p>When opening a request you should include:</p>
+<ul>
+<li>A description of what you have done</li>
+<li>Any points to be particularly aware of</li>
+<li>Checkboxes for required/ongoing tasks</li>
+</ul>
+<!----------------------------------------------------------------------------------->
+</section>
+<section id="exercise---mergepull-requests" class="slide level2 smaller">
+<h2>Exercise - Merge/Pull requests</h2>
+<p>From the branches you pushed up in the previous exercise open pull requests either:</p>
+<ul>
+<li>into the main branch of your fork, or</li>
+<li>back to the main branch of my repository.</li>
+</ul>
+<!----------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------->
+</section>
+<section id="code-review" class="slide level2 smaller">
+<h2>Code Review</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Code review is not:</p>
+<ul>
+<li>just for ‘real’ software</li>
+<li>a chance to feel bad about your code</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<p>Code review is:</p>
+<ul>
+<li>chance to reflect on what you wrote,</li>
+<li>chance to spot bugs - we all make them!</li>
+<li>testing that someone else can understand your code,</li>
+<li>guarding against laziness,</li>
+<li>a method to improve quality reusability,</li>
+<li>chance to learn.</li>
+</ul>
+</div>
+</div></div>
+<!----------------------------------------------------------------------------------->
+</section>
+<section id="code-review-1" class="slide level2 smaller">
+<h2>Code Review</h2>
+<p>Again, GitHub and GitLab have nice infrastructure to make this an effective and visual process.</p>
+<p>Anyone can conduct a code review on a public repository.<br>
+If working alone ask colleagues for help and return the favour.</p>
+<p><br>
+</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Do</strong>:</p>
+<ul>
+<li>remember who the person you are reviewing is</li>
+<li>explain your reasons for requests</li>
+<li>praise good code, not just point out errors</li>
+</ul>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:40%;">
+<p><strong>Do not</strong>:</p>
+<ul>
+<li>impose preferences</li>
+<li>nitpick excessively</li>
+</ul>
+</div></div>
+<!----------------------------------------------------------------------------------->
+</section>
+<section id="exercise---code-review" class="slide level2 smaller">
+<h2>Exercise - Code Review</h2>
+<p>We will work through the two pull requests we opened and perform a code review before merging the work.</p>
+<p><br>
+</p>
+<p>If anyone in the audience opened a pull request back to my repository and would like to volunteer we can review their code!</p>
+<!----------------------------------------------------------------------------------->
+<!-- ============================================================================== -->
+</section></section>
+<section>
+<section id="closing" class="title-slide slide level1 center">
+<h1>Closing</h1>
+
+</section>
+<section id="summary" class="slide level2 smaller">
+<h2>Summary</h2>
+<p>git is not just a series of backups, it is a project management system.</p>
+<p><br>
+</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Improve your repositories:
+<ul>
+<li>README.md</li>
+<li>LICENSE</li>
+<li>.gitignore</li>
+</ul></li>
+<li>Use branches:
+<ul>
+<li>Separate workflows</li>
+<li>Organise project</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Make full use of GitLab/GitHub features:
+<ul>
+<li>Helper tools</li>
+<li>Issues</li>
+<li>Pull Requests</li>
+<li>Code review:
+<ul>
+<li>Learn, spot bugs, improve re-useability</li>
+</ul></li>
+</ul></li>
+</ul>
+</div></div>
+</section>
+<section id="where-can-i-learn-more" class="slide level2 smaller">
+<h2>Where can I learn more?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>References and links in these slides</li>
+<li><a href="https://git-scm.com/book/en/v2">Pro Git book</a></li>
+<li>If something has gone really wrong: <a href="https://ohshitgit.com/">ohshitgit.com</a></li>
+<li>Cambridge RSE Seminars
+<ul>
+<li>Weekly presentations in Cambridge and online</li>
+<li>See <a href="https://rse.group.cam.ac.uk/">rse.group.cam.ac.uk</a></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>GitButler’s 2024 FOSDEM talk “so you think you know git?”:</li>
+</ul>
+<iframe width="100%" src="https://www.youtube.com/embed/aolI_Rz0ZqY?si=cTgzuRQRB65STBGD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
+</iframe>
+</div></div>
+</section>
+<section id="thanks" class="slide level2 smaller">
+<h2>Thanks</h2>
+<div class="columns">
+<div class="column" style="width:20%;">
+<p>Get in touch:</p>
+</div><div class="column" style="width:40%;">
+<p><i class="fa-solid fa-pencil" aria-label="pencil"></i> &nbsp;Jack Atkinson</p>
+<p><i class="fa-solid fa-globe" aria-label="globe"></i> &nbsp;<a href="https://jackatkinson.net">jackatkinson.net</a></p>
+<p><i class="fa-solid fa-envelope" aria-label="envelope"></i> &nbsp;<a href="mailto:jwa34@cam.ac.uk">jwa34[AT]cam.ac.uk</a></p>
+<p><i class="fa-brands fa-github" aria-label="github"></i> &nbsp;<a href="https://github.com/jatkinson1000">jatkinson1000</a></p>
+<p><i class="fa-brands fa-mastodon" aria-label="mastodon"></i> &nbsp;<a href="https://fosstodon.org/@jatkinson1000">@jatkinson1000@fosstodon.org</a></p>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:30%;">
+<p><i class="fa-solid fa-pencil" aria-label="pencil"></i> &nbsp;Adeleke Bankole</p>
+<p><i class="fa-solid fa-envelope" aria-label="envelope"></i> &nbsp;<a href="mailto:ab3191@cam.ac.uk">ab3191[AT]cam.ac.uk</a></p>
+<p><i class="fa-brands fa-github" aria-label="github"></i> &nbsp;<a href="https://github.com/AdelekeBankole">AdelekeBankole</a></p>
+</div></div>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Evans_2024_githistory" class="csl-entry" role="listitem">
+Evans, J. 2024. <span>“Do We Think of Git Commits as Diffs, Snapshots, and/or Histories?”</span> <a href="https://jvns.ca/blog/2024/01/05/do-we-think-of-git-commits-as-diffs--snapshots--or-histories/" class="uri">https://jvns.ca/blog/2024/01/05/do-we-think-of-git-commits-as-diffs--snapshots--or-histories/</a>.
+</div>
+<div id="ref-Mukerjee_2024_unpacking" class="csl-entry" role="listitem">
+Mukerjee, A. 2024. <span>“Unpacking Git Packfiles.”</span> <a href="https://codewords.recurse.com/issues/three/unpacking-git-packfiles" class="uri">https://codewords.recurse.com/issues/three/unpacking-git-packfiles</a>.
+</div>
+</div>
+<p>Plus other links throughout the slides.</p>
+
+</section></section>
+
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="https://iccs.cam.ac.uk/files/iccs_ucam_combined_reverse_colour.png" class="slide-logo"></p>
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="git_for_science_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="git_for_science_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="git_for_science_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="git_for_science_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="git_for_science_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="git_for_science_files/libs/revealjs/plugin/reveal-attribution/attribution.js"></script>
+  <script src="git_for_science_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="git_for_science_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="git_for_science_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="git_for_science_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="git_for_science_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealAttribution, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

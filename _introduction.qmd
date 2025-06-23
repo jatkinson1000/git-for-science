@@ -1,0 +1,110 @@
+# git 101
+
+<!----------------------------------------------------------------------------------->
+
+## What is git {.smaller}
+
+git is a version control system developed by Linus Torvalds.^[also the creator of Linux]
+
+It tracks changes made to files over time.
+
+![]( images/alice_rabbit_hole.jpg ){.absolute top=30% width=40% left=30%}
+
+<!----------------------------------------------------------------------------------->
+
+## Installation and setup {.smaller}
+
+Git comes preinstalled on most Linux distributions and macOS.\
+You can check it is on your system by running `which git`.
+
+\
+
+If you are on Windows, or do not have git, check the
+[git docs](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)^[As an aside,
+the official git docs have a... reputation. Although good for reference there are
+often friendlier resources for learning.] or the
+[GitHub guide](https://github.com/git-guides/install-git) to installing git.
+https://github.com/git-guides/install-git
+
+\
+
+Setting up a new git repository is beyond the scope of this talk but involves using the\
+[`git --init` command](https://git-scm.com/docs/git-init).
+
+\
+
+We will assume that you have created a repository using an online hosting service
+(GitLab, GitHub etc.) that provides a nice UI wrapper around the process.
+
+<!----------------------------------------------------------------------------------->
+
+## How does it work? {.smaller}
+
+A mental model:
+
+- Each time you `commit` work git stores it as a `diff`.
+  - This shows specific lines of a file and how they changed (`+`/`-`).
+  - This is what you see with the `git diff` command.
+- `diff`s are stored in a `tree`.
+  - By applying each `diff` one at a time we can reconstruct files.
+  - We do not need to do this in order\
+    see cherry-picking and merge conflicts...
+
+<!----------------------------------------------------------------------------------->
+
+## How does it work? {.smaller}
+
+```{.shell code-line-numbers="|1,3-4|5|5-8,11,12-15,17-19|5-8,9-10,11,16,17-19|"}
+diff --git a/mycode/functions.py b/mycode/functions.py
+index b784b07..d08024a 100644
+--- a/mycode/functions.py
++++ b/mycode/functions.py
+@@ -340,11 +341,10 @@ def rootfind_score(
+         fpre = fcur
+         if abs(scur) > delta:
+             xcur += scur
++        elif sbis > 0:
++            xcur += delta
+         else:
+-            if sbis > 0:
+-                xcur += delta
+-            else:
+-                xcur -= delta
++            xcur -= delta
+
+         fcur = f_root(xcur, score, rnd)
+         val = xcur
+```
+
+::: {.notes}
+- Famous George Box quote
+:::
+
+::: {.attribution}
+@Evans_2024_githistory, @Mukerjee_2024_unpacking
+:::
+
+<!----------------------------------------------------------------------------------->
+
+## How does it work? {.smaller}
+
+Actually:
+
+- Each time you `commit` work git creates a `snapshot`
+  - Contains the commit message and a hash to a `tree`.
+- The `tree` is a list of files in the repo at this commit.
+  - In reality it is a `tree` of `tree`s for efficiency!
+  - The roots of the tree are `pack`ed files at time of commit.
+- `pack`ed files are efficiently compressed.
+  - And may use `delta`s which are a bit like `diff`s.
+- By tracing the tree and then un`pack`ing we can reconstruct the repo at a state in
+  time given by the commit hash.
+
+
+::: {.notes}
+- Famous George Box quote
+:::
+
+::: {.attribution}
+@Evans_2024_githistory
+:::

@@ -1,0 +1,71 @@
+<!----------------------------------------------------------------------------------->
+
+## Code Review {.smaller}
+
+:::: {.columns}
+::: {.column width=50%}
+Code review is not:
+
+- just for 'real' software
+- a chance to feel bad about your code
+:::
+::: {.column width=50%}
+
+::: {.fragment}
+Code review is:
+
+- chance to reflect on what you wrote,
+- chance to spot bugs - we all make them!
+- testing that someone else can understand your code,
+- guarding against laziness,
+- a method to improve quality reusability,
+- chance to learn.
+:::
+:::
+::::
+
+<!----------------------------------------------------------------------------------->
+
+## Code Review {.smaller}
+
+Again, GitHub and GitLab have nice infrastructure to make this an effective and visual
+process.
+
+Anyone can conduct a code review on a public repository.\
+If working alone ask colleagues for help and return the favour.
+
+\
+
+:::: {.columns}
+::: {.column width=50%}
+**Do**:
+
+- remember who the person you are reviewing is
+- explain your reasons for requests
+- praise good code, not just point out errors
+
+:::
+::: {.column width=10%}
+:::
+::: {.column width=40%}
+**Do not**:
+
+- impose preferences
+- nitpick excessively
+
+:::
+::::
+
+<!----------------------------------------------------------------------------------->
+
+## Exercise - Code Review {.smaller}
+
+We will work through the two pull requests we opened and perform a code review before
+merging the work.
+
+\
+
+If anyone in the audience opened a pull request back to my repository and would like to
+volunteer we can review their code!
+
+<!----------------------------------------------------------------------------------->

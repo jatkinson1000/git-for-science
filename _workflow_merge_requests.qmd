@@ -1,0 +1,34 @@
+<!----------------------------------------------------------------------------------->
+
+## Merge/Pull Requests {.smaller}
+
+- Another feature of GitHub/GitLab.^[Not be part of your local git repository,
+  but tied to the online provider.]
+- A friendlier, graphical way of merging branches
+- Can be linked to GitHub/GitLab issues
+
+- A method of tracking progress
+  - can be opened after the first push
+  - a place for collaborative discussion.\
+    An example: [convection-parameterization-in-CAM/pull/44](https://github.com/m2lines/convection-parameterization-in-CAM/pull/44)
+
+<!----------------------------------------------------------------------------------->
+
+## Merge/Pull Requests {.smaller}
+
+When opening a request you should include:
+
+- A description of what you have done
+- Any points to be particularly aware of
+- Checkboxes for required/ongoing tasks
+
+<!----------------------------------------------------------------------------------->
+
+## Exercise - Merge/Pull requests {.smaller}
+
+From the branches you pushed up in the previous exercise open pull requests either:
+
+- into the main branch of your fork, or
+- back to the main branch of my repository.
+
+<!----------------------------------------------------------------------------------->
