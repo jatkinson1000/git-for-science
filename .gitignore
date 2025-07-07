@@ -1,0 +1,4 @@
+git-for-science-env/
+*egg-info
+*__pycache__
+build/
