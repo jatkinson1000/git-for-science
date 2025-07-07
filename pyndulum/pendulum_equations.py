@@ -92,3 +92,19 @@ def bpm(len: float) -> float:
         pendulum frequency in beats per minute [1 / min]
     """
     return 60.0 / get_period(len)
+
+def energy(m, length, theta):
+    """
+    Calculates the energy of a pendulum
+    
+    Parameters
+    ----------
+    m : float
+        mass of bob in kg
+    length : float
+        length of pendulum in m
+    theta : float
+        maximum angle of displacement in radians
+
+    """
+    return m * 9.81 * max_height(length, theta)
