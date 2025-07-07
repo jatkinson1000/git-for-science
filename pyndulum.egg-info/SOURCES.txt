@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+pyndulum/__init__.py
+pyndulum/pendulum_equations.py
+pyndulum.egg-info/PKG-INFO
+pyndulum.egg-info/SOURCES.txt
+pyndulum.egg-info/dependency_links.txt
+pyndulum.egg-info/requires.txt
+pyndulum.egg-info/top_level.txt
