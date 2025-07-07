@@ -2,6 +2,7 @@
 
 import numpy as np
 
+g = 9.81 # meters per second^2
 
 def get_period(len: float) -> float:
     """
@@ -92,3 +93,21 @@ def bpm(len: float) -> float:
         pendulum frequency in beats per minute [1 / min]
     """
     return 60.0 / get_period(len)
+
+
+def length(period: float):
+    """
+    Calculate pendulum length in meters.
+
+    Parameters
+    ----------
+    period: float
+        length of the pendulum [m]
+
+    Returns
+    -------
+    float
+        pendulum length in meters
+    """
+
+    return g * period**2 / (4 * np.pi**2)
