@@ -2,6 +2,7 @@
 
 import numpy as np
 
+g = 9.81
 
 def get_period(len: float) -> float:
     """
@@ -17,7 +18,7 @@ def get_period(len: float) -> float:
     float
         period [s] for a swing of the pendulum
     """
-    return 2.0 * np.pi * np.sqrt(len / 9.81)
+    return 2.0 * np.pi * np.sqrt(len / g)
 
 
 def max_height(len: float, theta: float) -> float:
@@ -37,6 +38,28 @@ def max_height(len: float, theta: float) -> float:
         maximum vertical height [m] of the pendulum
     """
     return len * np.cos(theta)
+
+def energy(length: float, theta: float, mass: float) -> float:
+    """
+    Calculate energy of pendulum
+    
+    Parameters
+    ----------
+    len : float
+        length of the pendulum [m]
+    theta : float
+        maximum angle of displacment of the pendulum [radians]
+
+    Returns
+    -------
+    float
+        total (kinetic + potential) energy of pendulum
+    """
+
+    max_h = max_height(length, theta)
+    energy = mass * g * max_h
+
+    return energy
 
 
 def max_speed(len: float, theta: float) -> float:
