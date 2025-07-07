@@ -3,7 +3,7 @@
 import numpy as np
 
 # Added length equation
-
+# Added energy calculation
 
 def get_period(len: float) -> float:
     """
