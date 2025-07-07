@@ -2,6 +2,8 @@
 
 import numpy as np
 
+# Added length equation
+
 
 def get_period(len: float) -> float:
     """
