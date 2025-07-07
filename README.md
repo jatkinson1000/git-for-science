@@ -9,10 +9,10 @@ To install this code clone the repository using:
 ```
 git clone https://github.com/jatkinson1000/git-for-science.git git4sci
 ```
-Navigate inside and then install using pip:
+Navigate inside and then install (as editable, and with the current directory as a path) using pip:
 ```
 cd git4sci
-pip install .
+pip install -e ./
 ```
 It is recommended to use a virtual environment.
 
