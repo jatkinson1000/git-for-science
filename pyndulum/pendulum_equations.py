@@ -94,7 +94,7 @@ def bpm(len: float) -> float:
     return 60.0 / get_period(len)
 
 
-def calc_energy(mas: float, theta: float) -> float:
+def calc_energy(mass: float, theta: float) -> float:
     """
     Calculate the total mechanical energy of a pendulum.
 
