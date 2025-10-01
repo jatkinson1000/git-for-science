@@ -2,6 +2,8 @@
 
 ## Issues {.smaller}
 
+:::: {.columns}
+::: {.column width="60%"}
 Both GitHub and GitLab have methods for tracking issues.
 
 These are useful for organising work.
@@ -10,7 +12,24 @@ These are useful for organising work.
 - logging new issues as they arise
 - tracking and scheduling development
 
-Example issue log on GitHub: [Cambridge-ICCS/FTorch](https://github.com/Cambridge-ICCS/FTorch/issues)\
+Example issues:
+
+- [CLUBB-ML](https://github.com/m2lines/clubb_ML/issues)
+  e.g. [#13](https://github.com/m2lines/clubb_ML/issues/13) or
+  [#17](https://github.com/m2lines/clubb_ML/issues/17)
+- [Cambridge-ICCS/FTorch](https://github.com/Cambridge-ICCS/FTorch/issues)
+- [TCTrack](https://github.com/Cambridge-ICCS/TCTrack/issues)
+:::
+::: {.column width="40%"}
+::: {.v-center-container style="text-align: center;"}
+GitHub\
+![](images/GitHub_Issues.jpg){width=100%}
+
+GitLab\
+![](images/GitLab_Issues.jpg){width=75%}
+:::
+:::
+::::
 
 ::: {.aside}
 NOTE: Issues are part of GitHub/GitLab, NOT the git repository.\
@@ -30,6 +49,18 @@ It would enhance the _pyndulum_ code if we added functions to calculate:
 \
 
 We will open issues for these on the online repository.
+
+I will open one for pendulum energy, but you should open one for pendulum length.
+
+\
+
+::: {style="font-size: 0.5em;"}
+> **!NOTE "Issues and Forks"**
+> 
+> By default issues are off for forks, so you should open the issue on my copy of the
+> repository on [GitLab](https://gitlab.com/jatkinson1000/git-for-science/-/issues)
+> or [GitHub](https://github.com/jatkinson1000/git-for-science/issues).
+:::
 
 ::: {.aside}
 Extension: Beyond the scope of today's course you can also use

@@ -40,7 +40,7 @@ organise your work even if you are the only contributor.
 :::: {.columns}
 ::: {.column width=55%}
 ```{mermaid}
-    %%{init: {'theme': 'dark',
+    %%{init: {'theme': 'base',
               'gitGraph': {'rotateCommitLabel': true},
               'themeVariables': {
                   'commitLabelBackground': '#bbbbbb',
@@ -59,7 +59,7 @@ organise your work even if you are the only contributor.
 Conduct development in branches and merged into main when completed:
 
 ```{mermaid}
-    %%{init: {'theme': 'dark',
+    %%{init: {'theme': 'base',
               'gitGraph': {'rotateCommitLabel': true},
               'themeVariables': {
                   'commitLabelBackground': '#bbbbbb',
@@ -102,7 +102,7 @@ This comes into its own when working concurrently on different features.\
 This way danger and obscurity lies:
 
 ```{mermaid}
-    %%{init: {'theme': 'dark',
+    %%{init: {'theme': 'base',
               'gitGraph': {'rotateCommitLabel': true},
               'themeVariables': {
                   'commitLabelBackground': '#bbbbbb',
@@ -125,7 +125,7 @@ This way danger and obscurity lies:
 This is manageable and _understandable_:
 
 ```{mermaid}
-    %%{init: {'theme': 'dark',
+    %%{init: {'theme': 'base',
               'gitGraph': {'rotateCommitLabel': true},
               'themeVariables': {
                   'commitLabelBackground': '#bbbbbb',
@@ -168,24 +168,18 @@ We want to add a functions to calculate pendulum length from desired period and 
 
 \
 
-Create a branch locally and add the new length equation to `pendulum_equations.py`.
-Make sure you add and commit your changes!
-
-Return to `main` and create _another_ new branch to add the energy calculation.
-Again, commit your work.
+Together we will create a local branch and add the energy equation to
+`pendulum_equations.py`, add, commit, and push those changes.
 
 \
+
+You should then return to main and create another local branch to add the length
+equation to `pendulum_equations.py`. Make sure you add and commit your changes!
 
 Once you have done this use
 ```default
 git push <remote> <branch>
 ```
 to push your work up to a remote feature branch.
-
-::: {.aside}
-Note: There are a few different ways to merge branches: "merge", "rebase", "squash".\
-Exploting these is beyond the scope of today's course, but we'd be happy to discuss
-further afterwards.
-:::
 
 <!----------------------------------------------------------------------------------->

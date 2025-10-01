@@ -4,18 +4,61 @@
 
 All public codes should have a license attached!
 
-- `LICENSE` file in the main directory
-- Protect ownership
-- Limit liability
-- Clarify what can be done with the code
-  - Public Domain, Permissive, Copyleft
-
-The right selection may depend on your organisation and/or funder.
+- As a `LICENSE` file in the main directory
+  - Recommended to to choose an [OSI-approved](https://opensource.org/licenses) license
+    without modification.
+- Protects ownership and limits liability
+- Enables collaboration
+- Clarifies what can be done with the code and its derivatives
+  - Public Domain &#8596; Permissive &#8596; Copyleft
+  - The options may depend on your organisation and/or funder.
 
 See [choosealicense.com](https://choosealicense.com/) and the
 [OSI list of licenses](https://opensource.org/licenses) for more information.
 
 GitHub and GitLab contain helpers to easily create popular licenses.
+
+<!----------------------------------------------------------------------------------->
+
+## Adding a License - GitLab {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+**1)** From the main repo select the "+" dropdown menu and "New file".
+
+![](images/GitLab_License_1.jpg){width=100%}
+:::
+::: {.column width="50%"}
+**2)** In the filename type "LICENSE" and GitLab will detect and offer you a dropdown to choose
+a LICENSE template.
+
+![](images/GitLab_License_2.jpg){width=100%}
+:::
+::::
+**3)** Once you have chosen you can "Commit Changes" to add the file.
+It will appear as a LICENSE file at the top of the repository and will
+be detected by GitLab in the right hand side metadata.
+
+<!----------------------------------------------------------------------------------->
+
+## Adding a License - GitHub {.smaller}
+
+From the main repo select "Add file" and "+ Create new file".
+
+![](images/Github_License_1.jpg){width=80%}
+
+In the filename type "LICENSE" and GitHub will detect and offer you the option to choose
+a LICENSE template.
+
+![](images/Github_License_2.jpg){width=40%}
+
+## Adding a License - GitHub {.smaller}
+
+Select your desired license and follow the instructions to apply it to your repository.
+Once complete it will appear as a LICENSE file at the top of the repository and will
+be detected by GitHub in the right hand side metadata.
+
+![](images/Github_License_3.jpg){height=40%}
 
 <!----------------------------------------------------------------------------------->
 

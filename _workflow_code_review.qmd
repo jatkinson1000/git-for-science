@@ -60,12 +60,14 @@ If working alone ask colleagues for help and return the favour.
 
 ## Exercise - Code Review {.smaller}
 
-We will work through the two pull requests we opened and perform a code review before
+We will work through the length equation pull request and perform a code review before
 merging the work.
 
 \
 
 If anyone in the audience opened a pull request back to my repository and would like to
-volunteer we can review their code!
+volunteer we can review your code!
+
+Please raise your hand and let me know the "number" pf your Merge/Pull request.
 
 <!----------------------------------------------------------------------------------->

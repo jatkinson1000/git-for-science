@@ -117,7 +117,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="git_for_science_files/libs/revealjs/dist/theme/quarto-9307b7ddfd9d48addf0c3226de73f921.css">
+  <link rel="stylesheet" href="git_for_science_files/libs/revealjs/dist/theme/quarto-195306fff298caf4ec64d7c314d2eb99.css">
   <link href="git_for_science_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="git_for_science_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="git_for_science_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -237,19 +237,20 @@ Jack Atkinson <a href="https://orcid.org/0000-0001-5001-4812" class="quarto-titl
 <section id="precursors" class="slide level2 smaller nostretch">
 <h2>Precursors</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:55%;">
 <h4 id="slides-and-materials">Slides and Materials</h4>
 <p>To access links or follow on your own device these slides can be found at:<br>
 <a href="https://jatkinson1000.github.io/git-for-science">jatkinson1000.github.io/git-for-science</a></p>
 <p><br>
 </p>
 <p>All materials are available at:</p>
-<div class="column" style="font-size: 95%;">
+<div style="font-size: 95%;">
 <ul>
 <li><a href="https://gitlab.com/jatkinson1000/git-for-science">gitlab.com/jatkinson1000/git-for-science</a></li>
 <li><a href="https://github.com/jatkinson1000/git-for-science">github.com/jatkinson1000/git-for-science</a></li>
 </ul>
-</div></div><div class="column" style="width:50%;">
+</div>
+</div><div class="column" style="width:45%;">
 <h4 id="licensing">Licensing</h4>
 <p>Except where otherwise noted, these presentation materials are licensed under the Creative Commons <a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode">Attribution-NonCommercial 4.0 International</a> (<a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>) License.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -278,6 +279,69 @@ Jack Atkinson <a href="https://orcid.org/0000-0001-5001-4812" class="quarto-titl
 </ul></li>
 </ul>
 </div></div>
+</section>
+<section id="learning-objectives" class="slide level2 smaller">
+<h2>Learning Objectives</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>Recap the basic git commands</li>
+<li>Improve contextual understanding of git:
+<ul>
+<li>through mental models</li>
+<li>review landscape</li>
+</ul></li>
+</ul>
+<div class="v-center-container" style="text-align: center;">
+<p><img data-src="images/git_spaces_2.png" style="width:75.0%"></p>
+</div>
+</div><div class="column" style="width:45%;">
+<div class="fragment">
+<ul>
+<li>Understand key components of git repositories to aid in collaboration</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Lern how to use git and GitHub/GitLab to better manage development and collaboration
+<ul>
+<li>branches</li>
+<li>issues</li>
+<li>merge/pull requests</li>
+<li>code review</li>
+</ul></li>
+</ul>
+</div>
+</div></div>
+<!-- ============================================================================== -->
+</section>
+<section id="structure-premise" class="slide level2 smaller">
+<h2>Structure &amp; Premise</h2>
+<ul>
+<li>This workshop has teaching interwoven with practical exercises</li>
+<li>We will be cloning a basic git repository and improving it over the session</li>
+<li>After learning new concepts we will immediately put them into practice with a coding exercise before returning to learn more.</li>
+</ul>
+<p>I suggest you have open:</p>
+<ul>
+<li>A text editor or IDE</li>
+<li>A terminal window</li>
+<li>A browser window</li>
+</ul>
+<!-- ============================================================================== -->
+</section>
+<section id="structure-premise-1" class="slide level2 smaller">
+<h2>Structure &amp; Premise</h2>
+<p>You are doing some work on pendula and your colleague says they have written some code that solves the equations and they can share with you.<br>
+This is made easy by the fact that it is on git!<br>
+Let’s see how we get on…</p>
+<p>Go to the workshop repository:</p>
+<ul>
+<li>GitHub: <a href="https://github.com/jatkinson1000/git-for-science">github.com/jatkinson1000/git-for-science</a></li>
+<li>GitLab: <a href="https://gitlab.com/jatkinson1000/git-for-science">gitlab.com/jatkinson1000/git-for-science</a></li>
+</ul>
+<p>If you have an account then <code>fork</code> the repository and clone your fork.<br>
+</p>
 <!-- ============================================================================== -->
 </section>
 <section>
@@ -285,13 +349,6 @@ Jack Atkinson <a href="https://orcid.org/0000-0001-5001-4812" class="quarto-titl
 <h1>git 101</h1>
 <!----------------------------------------------------------------------------------->
 </section>
-<section id="what-is-git" class="slide level2 smaller">
-<h2>What is git</h2>
-<p>git is a version control system developed by Linus Torvalds.<sup>1</sup></p>
-<p>It tracks changes made to files over time.</p>
-<p><img data-src="images/alice_rabbit_hole.jpg" class="absolute" style="top: 30%; left: 30%; width: 40%; "></p>
-<!----------------------------------------------------------------------------------->
-<aside><ol class="aside-footnotes"><li id="fn1"><p>also the creator of Linux</p></li></ol></aside></section>
 <section id="installation-and-setup" class="slide level2 smaller">
 <h2>Installation and setup</h2>
 <p>Git comes preinstalled on most Linux distributions and macOS.<br>
@@ -307,9 +364,243 @@ You can check it is on your system by running <code>which git</code>.</p>
 </p>
 <p>We will assume that you have created a repository using an online hosting service (GitLab, GitHub etc.) that provides a nice UI wrapper around the process.</p>
 <!----------------------------------------------------------------------------------->
-<aside><ol class="aside-footnotes"><li id="fn2"><p>As an aside, the official git docs have a… reputation. Although good for reference there are often friendlier resources for learning.</p></li></ol></aside></section>
-<section id="how-does-it-work" class="slide level2 smaller">
-<h2>How does it work?</h2>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>As an aside, the official git docs have a… reputation. Although good for reference there are often friendlier resources for learning.</p></li></ol></aside></section>
+<section id="what-is-git" class="slide level2 smaller">
+<h2>What is git?</h2>
+<ul>
+<li>a version control system developed by Linus Torvalds.<sup>1</sup></li>
+<li>tracks changes made to files over time.</li>
+<li>not Dropbox!</li>
+</ul>
+<p><img data-src="images/alice_rabbit_hole.jpg" class="absolute" style="top: 30%; left: 30%; width: 40%; "></p>
+<div class="attribution">
+<p>Rabbit hole from Disney’s Alice in Wonderland under fair use</p>
+</div>
+<!----------------------------------------------------------------------------------->
+<aside><ol class="aside-footnotes"><li id="fn2"><p>Also the creator of Linux</p></li></ol></aside></section>
+<section id="git-geography" class="slide level2 smaller">
+<h2>git Geography</h2>
+<div class="columns">
+<div class="column" style="width:35%;">
+<p><strong>Locations</strong></p>
+<ul>
+<li>Local
+<ul>
+<li>Workspace</li>
+<li>Staging area <em>or</em> index</li>
+<li>Local repo</li>
+<li>Stash</li>
+</ul></li>
+<li>Remote
+<ul>
+<li>Remote repo</li>
+</ul></li>
+</ul>
+</div><div class="column v-center-container" style="text-align: center; width: 65%;">
+<p><img data-src="images/git_spaces_2.png" style="width:100.0%"></p>
+</div></div>
+<p>These (and more) can be explored in Andrew Peterson’s <a href="https://ndpsoftware.com/git-cheatsheet.html">Interactive git cheat sheet</a></p>
+</section>
+<section id="a-warning" class="slide level2 smaller">
+<h2>A Warning</h2>
+
+<img data-src="images/lost_work_b0rk.jpg" class="r-stretch"><div class="attribution">
+<p><a href="https://fosstodon.org/@b0rk@jvns.ca/111920509893059355">Julia Evans - @b0rk</a></p>
+</div>
+<!----------------------------------------------------------------------------------->
+</section>
+<section id="the-basic-commands" class="slide level2 smaller">
+<h2>The basic commands</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><code>git clone &lt;repo&gt; [&lt;dir&gt;]</code>
+<ul>
+<li>Clone a repository into a new directory</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource console number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>$ git clone git@github.com:jatkinson1000/git-for-science.github git4sci</span>
+<span id="cb1-2"><a href=""></a>  Cloning into 'git4sci'...</span>
+<span id="cb1-3"><a href=""></a>  remote: Enumerating objects: 42, done.</span>
+<span id="cb1-4"><a href=""></a>  remote: Counting objects: 100% (42/42), done.</span>
+<span id="cb1-5"><a href=""></a>  remote: Compressing objects: 100% (39/39), done.</span>
+<span id="cb1-6"><a href=""></a>  remote: Total 42 (delta 26), reused 31 (delta 15), pack-reused 0</span>
+<span id="cb1-7"><a href=""></a>  Receiving objects: 100% (42/42), 69.62 MiB | 5.64 MiB/s, done.</span>
+<span id="cb1-8"><a href=""></a>  Resolving deltas: 100% (26/26), done.</span>
+<span id="cb1-9"><a href=""></a>$</span>
+<span id="cb1-10"><a href=""></a>$ cd git4sci/</span>
+<span id="cb1-11"><a href=""></a>$</span>
+<span id="cb1-12"><a href=""></a>$ echo "This is a new file." &gt; newfile.txt</span>
+<span id="cb1-13"><a href=""></a>$</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+</section>
+<section id="the-basic-commands-1" class="slide level2 smaller">
+<h2>The basic commands</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><code>git clone &lt;repo&gt; [&lt;dir&gt;]</code>
+<ul>
+<li>Clone a repository into a new directory</li>
+</ul></li>
+<li><code>git status</code>
+<ul>
+<li>Check the state of the directory</li>
+</ul></li>
+<li><code>git add &lt;filepath&gt;</code>
+<ul>
+<li>Update the index with any changes</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource console number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>$ git status</span>
+<span id="cb2-2"><a href=""></a>  On branch main</span>
+<span id="cb2-3"><a href=""></a>  Your branch is up to date with 'origin/main'.</span>
+<span id="cb2-4"><a href=""></a>  </span>
+<span id="cb2-5"><a href=""></a>  Untracked files:</span>
+<span id="cb2-6"><a href=""></a>    (use "git add &lt;file&gt;..." to include in what will be committed)</span>
+<span id="cb2-7"><a href=""></a>          newfile.txt</span>
+<span id="cb2-8"><a href=""></a>  </span>
+<span id="cb2-9"><a href=""></a>  no changes added to commit (use "git add" and/or "git commit -a")</span>
+<span id="cb2-10"><a href=""></a>$</span>
+<span id="cb2-11"><a href=""></a>$ git add newfile.txt</span>
+<span id="cb2-12"><a href=""></a>$</span>
+<span id="cb2-13"><a href=""></a>$ git status</span>
+<span id="cb2-14"><a href=""></a>  On branch main</span>
+<span id="cb2-15"><a href=""></a>  Your branch is up to date with 'origin/main'.</span>
+<span id="cb2-16"><a href=""></a>  </span>
+<span id="cb2-17"><a href=""></a>  Changes to be committed:</span>
+<span id="cb2-18"><a href=""></a>    (use "git restore --staged &lt;file&gt;..." to unstage)</span>
+<span id="cb2-19"><a href=""></a>          new file:   newfile.txt</span>
+<span id="cb2-20"><a href=""></a>$</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<aside class="notes">
+<ul>
+<li>Don’t use <code>git add -a</code>!</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-basic-commands-2" class="slide level2 smaller">
+<h2>The basic commands</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><code>git clone &lt;repo&gt; [&lt;dir&gt;]</code>
+<ul>
+<li>Clone a repository into a new directory</li>
+</ul></li>
+<li><code>git status</code>
+<ul>
+<li>Check the state of the directory</li>
+</ul></li>
+<li><code>git add &lt;filepath&gt;</code>
+<ul>
+<li>Update the index with any changes</li>
+</ul></li>
+<li><code>git commit</code>
+<ul>
+<li><code>git commit -m &lt;message&gt;</code></li>
+<li>Commit changes in the index to (local) record</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource console number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>$ git status</span>
+<span id="cb3-2"><a href=""></a>  On branch main</span>
+<span id="cb3-3"><a href=""></a>  Your branch is up to date with 'origin/main'.</span>
+<span id="cb3-4"><a href=""></a>  </span>
+<span id="cb3-5"><a href=""></a>  Changes to be committed:</span>
+<span id="cb3-6"><a href=""></a>    (use "git restore --staged &lt;file&gt;..." to unstage)</span>
+<span id="cb3-7"><a href=""></a>          new file:   newfile.txt</span>
+<span id="cb3-8"><a href=""></a>  </span>
+<span id="cb3-9"><a href=""></a>$</span>
+<span id="cb3-10"><a href=""></a>$ git commit -m "Add newfile with placeholder text."</span>
+<span id="cb3-11"><a href=""></a>  1 file changed, 1 insertion(+)</span>
+<span id="cb3-12"><a href=""></a>  create mode 100644 newfile.txt</span>
+<span id="cb3-13"><a href=""></a>$</span>
+<span id="cb3-14"><a href=""></a>$ git status</span>
+<span id="cb3-15"><a href=""></a>  On branch main</span>
+<span id="cb3-16"><a href=""></a>  Your branch is ahead of 'origin/main' by 1 commit.</span>
+<span id="cb3-17"><a href=""></a>    (use "git push" to publish your local commits)</span>
+<span id="cb3-18"><a href=""></a>  </span>
+<span id="cb3-19"><a href=""></a>  no changes added to commit (use "git add" and/or "git commit -a")</span>
+<span id="cb3-20"><a href=""></a>$</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+</section>
+<section id="the-basic-commands-3" class="slide level2 smaller">
+<h2>The basic commands</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><code>git clone &lt;repo&gt; [&lt;dir&gt;]</code>
+<ul>
+<li>Clone a repository into a new directory</li>
+</ul></li>
+<li><code>git status</code>
+<ul>
+<li>Check the state of the directory</li>
+</ul></li>
+<li><code>git add &lt;filepath&gt;</code>
+<ul>
+<li>Update the index with any changes</li>
+</ul></li>
+<li><code>git commit</code>
+<ul>
+<li><code>git commit -m &lt;message&gt;</code></li>
+<li>Commit changes in the index to (local) record</li>
+</ul></li>
+<li><code>git push &lt;remote&gt; &lt;branch&gt;</code>
+<ul>
+<li>Send your locally committed changes to the remote repo</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource console number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>$ git status</span>
+<span id="cb4-2"><a href=""></a>  On branch main</span>
+<span id="cb4-3"><a href=""></a>  Your branch is ahead of 'origin/main' by 1 commit.</span>
+<span id="cb4-4"><a href=""></a>    (use "git push" to publish your local commits)</span>
+<span id="cb4-5"><a href=""></a></span>
+<span id="cb4-6"><a href=""></a>  no changes added to commit (use "git add" and/or "git commit -a")</span>
+<span id="cb4-7"><a href=""></a>$</span>
+<span id="cb4-8"><a href=""></a>$ git push origin main</span>
+<span id="cb4-9"><a href=""></a>  Enumerating objects: 3, done.</span>
+<span id="cb4-10"><a href=""></a>  Counting objects: 100% (3/3), done.</span>
+<span id="cb4-11"><a href=""></a>  Delta compression using up to 8 threads</span>
+<span id="cb4-12"><a href=""></a>  Compressing objects: 100% (8/8), done.</span>
+<span id="cb4-13"><a href=""></a>  Writing objects: 100% (8/8), 1.89 KiB | 1.89 MiB/s, done.</span>
+<span id="cb4-14"><a href=""></a>  Total 8 (delta 7), reused 0 (delta 0), pack-reused 0</span>
+<span id="cb4-15"><a href=""></a>  remote: Resolving deltas: 100% (7/7), completed with 7 local objects.</span>
+<span id="cb4-16"><a href=""></a>  remote:</span>
+<span id="cb4-17"><a href=""></a>  To github.com:jatkinson1000/git-for-science.git</span>
+<span id="cb4-18"><a href=""></a>     7647d3a..7ab12ff  main -&gt; main</span>
+<span id="cb4-19"><a href=""></a>$</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<!-- ============================================================================== -->
+</section>
+<section id="exercise" class="slide level2 smaller">
+<h2>Exercise</h2>
+<p>Obtain a copy of the repository from the online remote using <code>git clone</code>.</p>
+<p><br>
+</p>
+<p>If you made a fork clone this, otherwise clone the main workshop version.</p>
+<p><br>
+</p>
+<p>Take a look around, how useful is this?<sup>1</sup></p>
+<p>Before we get started properly we’ll do a quick practical refresher of the basic git commands.</p>
+<!----------------------------------------------------------------------------------->
+<aside><ol class="aside-footnotes"><li id="fn3"><p>Since we are good python users we will use a <a href="https://docs.python.org/3/tutorial/venv.html">virtual environment</a>. Can we play with these commands in the repl?</p></li></ol></aside></section>
+<section id="how-does-git-work" class="slide level2 smaller">
+<h2>How does git work?</h2>
 <p>A mental model:</p>
 <ul>
 <li>Each time you <code>commit</code> work git stores it as a <code>diff</code>.
@@ -326,27 +617,27 @@ see cherry-picking and merge conflicts…</li>
 </ul>
 <!----------------------------------------------------------------------------------->
 </section>
-<section id="how-does-it-work-1" class="slide level2 smaller">
-<h2>How does it work?</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-code-line-numbers="|1,3-4|5|5-8,11,12-15,17-19|5-8,9-10,11,16,17-19|"><pre class="sourceCode numberSource shell number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href=""></a>diff --git a/mycode/functions.py b/mycode/functions.py</span>
-<span id="cb1-2"><a href=""></a>index b784b07..d08024a 100644</span>
-<span id="cb1-3"><a href=""></a>--- a/mycode/functions.py</span>
-<span id="cb1-4"><a href=""></a>+++ b/mycode/functions.py</span>
-<span id="cb1-5"><a href=""></a>@@ -340,11 +341,10 @@ def rootfind_score(</span>
-<span id="cb1-6"><a href=""></a>         fpre = fcur</span>
-<span id="cb1-7"><a href=""></a>         if abs(scur) &gt; delta:</span>
-<span id="cb1-8"><a href=""></a>             xcur += scur</span>
-<span id="cb1-9"><a href=""></a>+        elif sbis &gt; 0:</span>
-<span id="cb1-10"><a href=""></a>+            xcur += delta</span>
-<span id="cb1-11"><a href=""></a>         else:</span>
-<span id="cb1-12"><a href=""></a>-            if sbis &gt; 0:</span>
-<span id="cb1-13"><a href=""></a>-                xcur += delta</span>
-<span id="cb1-14"><a href=""></a>-            else:</span>
-<span id="cb1-15"><a href=""></a>-                xcur -= delta</span>
-<span id="cb1-16"><a href=""></a>+            xcur -= delta</span>
-<span id="cb1-17"><a href=""></a></span>
-<span id="cb1-18"><a href=""></a>         fcur = f_root(xcur, score, rnd)</span>
-<span id="cb1-19"><a href=""></a>         val = xcur</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="how-does-git-work-1" class="slide level2 smaller">
+<h2>How does git work?</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-code-line-numbers="|1,3-4|5|5-8,11-15,17-19|5-11,16-19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>diff <span class="op">--</span>git a<span class="op">/</span>mycode<span class="op">/</span>functions.py b<span class="op">/</span>mycode<span class="op">/</span>functions.py</span>
+<span id="cb5-2"><a href=""></a>index b784b07..d08024a <span class="dv">100644</span></span>
+<span id="cb5-3"><a href=""></a><span class="op">---</span> a<span class="op">/</span>mycode<span class="op">/</span>functions.py</span>
+<span id="cb5-4"><a href=""></a><span class="op">+++</span> b<span class="op">/</span>mycode<span class="op">/</span>functions.py</span>
+<span id="cb5-5"><a href=""></a><span class="op">@@</span> <span class="op">-</span><span class="dv">340</span>,<span class="dv">11</span> <span class="op">+</span><span class="dv">341</span>,<span class="dv">10</span> <span class="op">@@</span> <span class="kw">def</span> rootfind_score(</span>
+<span id="cb5-6"><a href=""></a>         fpre <span class="op">=</span> fcur</span>
+<span id="cb5-7"><a href=""></a>         <span class="cf">if</span> <span class="bu">abs</span>(scur) <span class="op">&gt;</span> delta:</span>
+<span id="cb5-8"><a href=""></a>             xcur <span class="op">+=</span> scur</span>
+<span id="cb5-9"><a href=""></a><span class="op">+</span>        <span class="cf">elif</span> sbis <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb5-10"><a href=""></a><span class="op">+</span>            xcur <span class="op">+=</span> delta</span>
+<span id="cb5-11"><a href=""></a>         <span class="cf">else</span>:</span>
+<span id="cb5-12"><a href=""></a><span class="op">-</span>            <span class="cf">if</span> sbis <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb5-13"><a href=""></a><span class="op">-</span>                xcur <span class="op">+=</span> delta</span>
+<span id="cb5-14"><a href=""></a><span class="op">-</span>            <span class="cf">else</span>:</span>
+<span id="cb5-15"><a href=""></a><span class="op">-</span>                xcur <span class="op">-=</span> delta</span>
+<span id="cb5-16"><a href=""></a><span class="op">+</span>            xcur <span class="op">-=</span> delta</span>
+<span id="cb5-17"><a href=""></a></span>
+<span id="cb5-18"><a href=""></a>         fcur <span class="op">=</span> f_root(xcur, score, rnd)</span>
+<span id="cb5-19"><a href=""></a>         val <span class="op">=</span> xcur</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <aside class="notes">
 <ul>
 <li>Famous George Box quote</li>
@@ -367,8 +658,8 @@ see cherry-picking and merge conflicts…</li>
 </div>
 <!----------------------------------------------------------------------------------->
 </section>
-<section id="how-does-it-work-2" class="slide level2 smaller">
-<h2>How does it work?</h2>
+<section id="how-does-git-work-2" class="slide level2 smaller">
+<h2>How does git work?</h2>
 <p>Actually:</p>
 <ul>
 <li>Each time you <code>commit</code> work git creates a <code>snapshot</code>
@@ -404,211 +695,9 @@ see cherry-picking and merge conflicts…</li>
 <div class="attribution">
 <p><span class="citation" data-cites="Evans_2024_githistory">Evans (<a href="#/references" role="doc-biblioref" onclick="">2024</a>)</span></p>
 </div>
-<!----------------------------------------------------------------------------------->
-</section>
-<section id="the-basic-commands" class="slide level2 smaller">
-<h2>The basic commands</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li><code>git clone &lt;repo&gt; [&lt;dir&gt;]</code>
-<ul>
-<li>Clone a repository into a new directory</li>
-</ul></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-code-line-numbers=""><pre class="sourceCode numberSource shell number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>$ git clone git@github.com:jatkinson1000/git-for-science.github git4sci</span>
-<span id="cb2-2"><a href=""></a>Cloning into 'git4sci'...</span>
-<span id="cb2-3"><a href=""></a>remote: Enumerating objects: 42, done.</span>
-<span id="cb2-4"><a href=""></a>remote: Counting objects: 100% (42/42), done.</span>
-<span id="cb2-5"><a href=""></a>remote: Compressing objects: 100% (39/39), done.</span>
-<span id="cb2-6"><a href=""></a>remote: Total 42 (delta 26), reused 31 (delta 15), pack-reused 0</span>
-<span id="cb2-7"><a href=""></a>Receiving objects: 100% (42/42), 69.62 MiB | 5.64 MiB/s, done.</span>
-<span id="cb2-8"><a href=""></a>Resolving deltas: 100% (26/26), done.</span>
-<span id="cb2-9"><a href=""></a>$</span>
-<span id="cb2-10"><a href=""></a>$ cd git4sci/</span>
-<span id="cb2-11"><a href=""></a>$</span>
-<span id="cb2-12"><a href=""></a>$ echo "This is a new file." &gt; newfile.txt</span>
-<span id="cb2-13"><a href=""></a>$</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div></div>
-</section>
-<section id="the-basic-commands-1" class="slide level2 smaller">
-<h2>The basic commands</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li><code>git clone &lt;repo&gt; [&lt;dir&gt;]</code>
-<ul>
-<li>Clone a repository into a new directory</li>
-</ul></li>
-<li><code>git status</code>
-<ul>
-<li>Check the state of the directory</li>
-</ul></li>
-<li><code>git add &lt;filepath&gt;</code>
-<ul>
-<li>Update the index with any changes</li>
-</ul></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-code-line-numbers=""><pre class="sourceCode numberSource shell number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>$ git status</span>
-<span id="cb3-2"><a href=""></a>On branch main</span>
-<span id="cb3-3"><a href=""></a>Your branch is up to date with 'origin/main'.</span>
-<span id="cb3-4"><a href=""></a></span>
-<span id="cb3-5"><a href=""></a>Untracked files:</span>
-<span id="cb3-6"><a href=""></a>  (use "git add &lt;file&gt;..." to include in what will be committed)</span>
-<span id="cb3-7"><a href=""></a>        newfile.txt</span>
-<span id="cb3-8"><a href=""></a></span>
-<span id="cb3-9"><a href=""></a>no changes added to commit (use "git add" and/or "git commit -a")</span>
-<span id="cb3-10"><a href=""></a>$</span>
-<span id="cb3-11"><a href=""></a>$ git add newfile.txt</span>
-<span id="cb3-12"><a href=""></a>$</span>
-<span id="cb3-13"><a href=""></a>$ git status</span>
-<span id="cb3-14"><a href=""></a>On branch main</span>
-<span id="cb3-15"><a href=""></a>Your branch is up to date with 'origin/main'.</span>
-<span id="cb3-16"><a href=""></a></span>
-<span id="cb3-17"><a href=""></a>Changes to be committed:</span>
-<span id="cb3-18"><a href=""></a>  (use "git restore --staged &lt;file&gt;..." to unstage)</span>
-<span id="cb3-19"><a href=""></a>        new file:   newfile.txt</span>
-<span id="cb3-20"><a href=""></a>$</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div></div>
-</section>
-<section id="the-basic-commands-2" class="slide level2 smaller">
-<h2>The basic commands</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li><code>git clone &lt;repo&gt; [&lt;dir&gt;]</code>
-<ul>
-<li>Clone a repository into a new directory</li>
-</ul></li>
-<li><code>git status</code>
-<ul>
-<li>Check the state of the directory</li>
-</ul></li>
-<li><code>git add &lt;filepath&gt;</code>
-<ul>
-<li>Update the index with any changes</li>
-</ul></li>
-<li><code>git commit</code>
-<ul>
-<li><code>git commit -m &lt;message&gt;</code></li>
-<li>Commit to record changes in the index</li>
-</ul></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-code-line-numbers=""><pre class="sourceCode numberSource shell number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>$ git status</span>
-<span id="cb4-2"><a href=""></a>On branch main</span>
-<span id="cb4-3"><a href=""></a>Your branch is up to date with 'origin/main'.</span>
-<span id="cb4-4"><a href=""></a></span>
-<span id="cb4-5"><a href=""></a>Changes to be committed:</span>
-<span id="cb4-6"><a href=""></a>  (use "git restore --staged &lt;file&gt;..." to unstage)</span>
-<span id="cb4-7"><a href=""></a>        new file:   newfile.txt</span>
-<span id="cb4-8"><a href=""></a></span>
-<span id="cb4-9"><a href=""></a>$</span>
-<span id="cb4-10"><a href=""></a>$ git commit -m "Add newfile with placeholder text."</span>
-<span id="cb4-11"><a href=""></a> 1 file changed, 1 insertion(+)</span>
-<span id="cb4-12"><a href=""></a> create mode 100644 newfile.txt</span>
-<span id="cb4-13"><a href=""></a>$</span>
-<span id="cb4-14"><a href=""></a>$ git status</span>
-<span id="cb4-15"><a href=""></a>On branch main</span>
-<span id="cb4-16"><a href=""></a>Your branch is ahead of 'origin/main' by 1 commit.</span>
-<span id="cb4-17"><a href=""></a>  (use "git push" to publish your local commits)</span>
-<span id="cb4-18"><a href=""></a></span>
-<span id="cb4-19"><a href=""></a>no changes added to commit (use "git add" and/or "git commit -a")</span>
-<span id="cb4-20"><a href=""></a>$</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div></div>
-</section>
-<section id="the-basic-commands-3" class="slide level2 smaller">
-<h2>The basic commands</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li><code>git clone &lt;repo&gt; [&lt;dir&gt;]</code>
-<ul>
-<li>Clone a repository into a new directory</li>
-</ul></li>
-<li><code>git status</code>
-<ul>
-<li>Check the state of the directory</li>
-</ul></li>
-<li><code>git add &lt;filepath&gt;</code>
-<ul>
-<li>Update the index with any changes</li>
-</ul></li>
-<li><code>git commit</code>
-<ul>
-<li><code>git commit -m &lt;message&gt;</code></li>
-<li>Commit to record changes in the index</li>
-</ul></li>
-<li><code>git push &lt;remote&gt; &lt;branch&gt;</code>
-<ul>
-<li>Send your locally committed changes to the remote repo</li>
-</ul></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-code-line-numbers=""><pre class="sourceCode numberSource shell number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>$ git status</span>
-<span id="cb5-2"><a href=""></a>On branch main</span>
-<span id="cb5-3"><a href=""></a>Your branch is ahead of 'origin/main' by 1 commit.</span>
-<span id="cb5-4"><a href=""></a>  (use "git push" to publish your local commits)</span>
-<span id="cb5-5"><a href=""></a></span>
-<span id="cb5-6"><a href=""></a>no changes added to commit (use "git add" and/or "git commit -a")</span>
-<span id="cb5-7"><a href=""></a>$</span>
-<span id="cb5-8"><a href=""></a>$ git push origin main</span>
-<span id="cb5-9"><a href=""></a>Enumerating objects: 3, done.</span>
-<span id="cb5-10"><a href=""></a>Counting objects: 100% (3/3), done.</span>
-<span id="cb5-11"><a href=""></a>Delta compression using up to 8 threads</span>
-<span id="cb5-12"><a href=""></a>Compressing objects: 100% (8/8), done.</span>
-<span id="cb5-13"><a href=""></a>Writing objects: 100% (8/8), 1.89 KiB | 1.89 MiB/s, done.</span>
-<span id="cb5-14"><a href=""></a>Total 8 (delta 7), reused 0 (delta 0), pack-reused 0</span>
-<span id="cb5-15"><a href=""></a>remote: Resolving deltas: 100% (7/7), completed with 7 local objects.</span>
-<span id="cb5-16"><a href=""></a>remote:</span>
-<span id="cb5-17"><a href=""></a>To github.com:jatkinson1000/git-for-science.git</span>
-<span id="cb5-18"><a href=""></a>   7647d3a..7ab12ff  main -&gt; main</span>
-<span id="cb5-19"><a href=""></a>$</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div></div>
-</section>
-<section id="the-git-atlas" class="slide level2 smaller">
-<h2>The git atlas</h2>
-<p><strong>Locations</strong></p>
-<ul>
-<li>Workspace</li>
-<li>Staging area <em>or</em> index</li>
-<li>Local repo</li>
-<li>Remote repo</li>
-<li>Stash</li>
-</ul>
-<p>These (and more) can be explored in Andrew Peterson’s <a href="https://ndpsoftware.com/git-cheatsheet.html">Interactive git cheat sheet</a></p>
-</section>
-<section id="a-warning" class="slide level2 smaller">
-<h2>A Warning</h2>
-
-<img data-src="images/lost_work_b0rk.jpg" class="r-stretch"><div class="attribution">
-<p><a href="https://fosstodon.org/@b0rk@jvns.ca/111920509893059355">Julia Evans - @b0rk</a></p>
-</div>
-<!-- ============================================================================== -->
-</section></section>
-<section>
-<section id="how-does-this-help-in-science" class="title-slide slide level1 center">
-<h1>How does this help in science?</h1>
-
-</section>
-<section id="exercise" class="slide level2 smaller">
-<h2>Exercise</h2>
-<p>You are doing some work on pendula and your colleague says they have written some code that solves the equations and they can share with you.<br>
-This is made easy by the fact that it is on git!<br>
-Let’s see how we get on…</p>
-<p>Go to the workshop repository:</p>
-<ul>
-<li>GitHub: <a href="https://github.com/jatkinson1000/git-for-science">github.com/jatkinson1000/git-for-science</a></li>
-<li>GitLab: <a href="https://gitlab.com/jatkinson1000/git-for-science">gitlab.com/jatkinson1000/git-for-science</a></li>
-</ul>
-<p>If you have an account then <code>fork</code> the repository and clone your fork.<br>
-If you do not have an account <code>clone</code> my repository.</p>
-<p>Take a look around, how useful is this?<sup>1</sup></p>
 <!-- ============================================================================== -->
 <!-- Section on README, License, and .gitignore and how to add on GitLab/Hub -->
-<aside><ol class="aside-footnotes"><li id="fn3"><p>Since we are good python users we will use a <a href="https://docs.python.org/3/tutorial/venv.html">virtual environment</a>. Can we play with these commands in the repl?</p></li></ol></aside></section></section>
+</section></section>
 <section>
 <section id="repository-files" class="title-slide slide level1 center">
 <h1>Repository Files</h1>
@@ -616,32 +705,44 @@ If you do not have an account <code>clone</code> my repository.</p>
 </section>
 <section id="readme" class="slide level2 smaller">
 <h2>README</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <ul>
 <li>A file in the main directory of your repository.</li>
 <li>The entry point for new users.</li>
-<li>Helps to ensure your code is used properly.</li>
+<li>Helps to ensure your code:
+<ul>
+<li>is accessible</li>
+<li>is used properly</li>
+<li>has longevity</li>
+</ul></li>
 <li>Today encouraged to be written in <a href="https://www.markdownguide.org/">Markdown</a> as <code>README.md</code>.</li>
 </ul>
+</div><div class="column v-center-container" style="text-align: center; width: 50%;">
+<p><img data-src="images/good_readme_pyTCR.jpg" style="width:65.0%"></p>
+</div></div>
 <!----------------------------------------------------------------------------------->
 </section>
 <section id="readme---examples" class="slide level2 smaller">
 <h2>README - examples</h2>
-<div class="fragment fade-in-then-out">
-<p><img data-src="images/terrible_readme.jpg" class="absolute" style="left: 25%; width: 50%; "></p>
-</div>
+<!--::: {.fragment .fade-in-then-out}-->
+<p><img data-src="images/terrible_readme.jpg" class="absolute" style="left: 25%; width: 50%; "> <!--:::--></p>
 <div class="fragment fade-in-then-out">
 <p><img data-src="images/bad_readme.jpg" class="absolute" style="left: 25%; width: 50%; "></p>
 </div>
-<div class="fragment">
-<p><img data-src="images/good_readme_1.jpg" class="absolute" style="left: 0%; width: 48%; "> <img data-src="images/good_readme_2.jpg" class="absolute" style="right: 0%; width: 48%; "></p>
-</div>
+<!--
+::: {.fragment}
+![](images/good_readme_1.jpg){.absolute left=0% width=48%}
+![](images/good_readme_2.jpg){.absolute right=0% width=48%}
+:::
+-->
 <!----------------------------------------------------------------------------------->
 </section>
 <section id="readme-1" class="slide level2 smaller">
 <h2>README</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<h4 id="essential">Essential</h4>
+<h4 id="essential">Essential:</h4>
 <ul>
 <li>Name</li>
 <li>Short summary</li>
@@ -668,12 +769,35 @@ If you do not have an account <code>clone</code> my repository.</p>
 Add as soon as you can in a project and update as you go along.</p>
 <!----------------------------------------------------------------------------------->
 </section>
+<section id="readme---good-examples" class="slide level2 smaller">
+<h2>README - good examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><a href="https://github.com/levuvietphong/pyTCR/">pyTCR</a> - Tropical cyclone rainfall modelling</li>
+<li><a href="https://github.com/Cambridge-ICCS/FTorch">FTorch</a> - coupling PyTorch to Fortran</li>
+<li><a href="https://github.com/ImperialCollegeLondon/pyrealm">pyrealm</a> - plant modelling</li>
+<li><a href="https://github.com/PlasmaFAIR/fortitude">Fortitude</a> - a Fortran linter</li>
+<li><a href="https://github.com/GO-SHIP-Oceanography/station_bathymetry">Station Bathymetry</a> - notebook-based repo for data analysis</li>
+<li><a href="https://github.com/othneildrew/Best-README-Template">The ‘Best-README-template’</a></li>
+</ul>
+</div><div class="column v-center-container" style="text-align: center; width: 50%;">
+<p><img data-src="images/good_readme_Fortitude.jpg" style="width:65.0%"></p>
+</div></div>
+<!----------------------------------------------------------------------------------->
+</section>
 <section id="exercise---readme" class="slide level2 smaller">
 <h2>Exercise - README</h2>
 <p>How can we improve the README in the <em>pyndulum</em> code?</p>
-<p>Edit the <code>README.md</code> file to improve it.</p>
+<p>Edit the <code>README.md</code> file to improve it. In-particular think about:</p>
+<ul>
+<li>A description of what the code is</li>
+<li>How it can be installed</li>
+<li>How to use it or get started</li>
+<li>Information about the authors and how to contribute</li>
+</ul>
 <p>Add and commit your changes.</p>
-<p>If you are working from a fork then push to see these changes reflected on the online remote.</p>
+<p>If you are working from a fork then push to see these changes reflected on the online remote repository.</p>
 <!----------------------------------------------------------------------------------->
 <!----------------------------------------------------------------------------------->
 </section>
@@ -681,17 +805,46 @@ Add as soon as you can in a project and update as you go along.</p>
 <h2>License</h2>
 <p>All public codes should have a license attached!</p>
 <ul>
-<li><code>LICENSE</code> file in the main directory</li>
-<li>Protect ownership</li>
-<li>Limit liability</li>
-<li>Clarify what can be done with the code
+<li>As a <code>LICENSE</code> file in the main directory
 <ul>
-<li>Public Domain, Permissive, Copyleft</li>
+<li>Recommended to to choose an <a href="https://opensource.org/licenses">OSI-approved</a> license without modification.</li>
+</ul></li>
+<li>Protects ownership and limits liability</li>
+<li>Enables collaboration</li>
+<li>Clarifies what can be done with the code and its derivatives
+<ul>
+<li>Public Domain ↔︎ Permissive ↔︎ Copyleft</li>
+<li>The options may depend on your organisation and/or funder.</li>
 </ul></li>
 </ul>
-<p>The right selection may depend on your organisation and/or funder.</p>
 <p>See <a href="https://choosealicense.com/">choosealicense.com</a> and the <a href="https://opensource.org/licenses">OSI list of licenses</a> for more information.</p>
 <p>GitHub and GitLab contain helpers to easily create popular licenses.</p>
+<!----------------------------------------------------------------------------------->
+</section>
+<section id="adding-a-license---gitlab" class="slide level2 smaller">
+<h2>Adding a License - GitLab</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>1)</strong> From the main repo select the “+” dropdown menu and “New file”.</p>
+<p><img data-src="images/GitLab_License_1.jpg" style="width:100.0%"></p>
+</div><div class="column" style="width:50%;">
+<p><strong>2)</strong> In the filename type “LICENSE” and GitLab will detect and offer you a dropdown to choose a LICENSE template.</p>
+<p><img data-src="images/GitLab_License_2.jpg" style="width:100.0%"></p>
+</div></div>
+<p><strong>3)</strong> Once you have chosen you can “Commit Changes” to add the file. It will appear as a LICENSE file at the top of the repository and will be detected by GitLab in the right hand side metadata.</p>
+<!----------------------------------------------------------------------------------->
+</section>
+<section id="adding-a-license---github" class="slide level2 smaller">
+<h2>Adding a License - GitHub</h2>
+<p>From the main repo select “Add file” and “+ Create new file”.</p>
+<p><img data-src="images/Github_License_1.jpg" style="width:80.0%"></p>
+<p>In the filename type “LICENSE” and GitHub will detect and offer you the option to choose a LICENSE template.</p>
+<p><img data-src="images/Github_License_2.jpg" style="width:40.0%"></p>
+</section>
+<section id="adding-a-license---github-1" class="slide level2 smaller">
+<h2>Adding a License - GitHub</h2>
+<p>Select your desired license and follow the instructions to apply it to your repository. Once complete it will appear as a LICENSE file at the top of the repository and will be detected by GitHub in the right hand side metadata.</p>
+<p><img data-src="images/Github_License_3.jpg" style="height:40.0%"></p>
 <!----------------------------------------------------------------------------------->
 </section>
 <section id="exercise---license" class="slide level2 smaller">
@@ -717,14 +870,29 @@ Add as soon as you can in a project and update as you go along.</p>
 <li>Used for:
 <ul>
 <li>junk that shouldn’t be in there - the infamous <code>.DS_store</code></li>
-<li>build files - <code>mycode.o</code> or <code>mymodule.mod</code> etc.</li>
+<li>build files - <code>mycode.o</code>, <code>mymodule.mod</code>, <code>out.a</code> etc.</li>
+<li>local environments - <code>.venv/</code></li>
 <li>large files - <code>50_year_run.nc</code> or <code>my_thesis.pdf</code> etc.</li>
 <li>keeping sensitive information out of public<sup>1</sup></li>
 </ul></li>
 </ul>
-<p>Again, GitHub and GitLab contain helpers and templates to create .gitignore.</p>
-<!----------------------------------------------------------------------------------->
 <aside><ol class="aside-footnotes"><li id="fn4"><p>If you have confidential information you should probably be doing more than .gitignore!</p></li></ol></aside></section>
+<section id="generating-a-gitignore" class="slide level2 smaller">
+<h2>Generating a gitignore</h2>
+<ul>
+<li><p>Again, GitHub and GitLab contain helpers and templates to create .gitignore.</p>
+<ul>
+<li>Add a file and this time enter “.gitignore” to get templates.</li>
+</ul></li>
+<li><p><a href="https://www.toptal.com/developers/gitignore">gitignore.io</a> also provides support for generating multi-language .gitignores.</p></li>
+<li><p>You can always edit the file later to add more things to it.</p></li>
+</ul>
+<p><br>
+</p>
+<p>Aside:</p>
+<p>While it can be tempting to use <code>git add -a</code> it should be avoided to prevent detritus and unclear commits. For the terminally lazy a better alternative is <code>git add -u</code>.</p>
+<!----------------------------------------------------------------------------------->
+</section>
 <section id="exercise---.gitignore" class="slide level2 smaller">
 <h2>Exercise - .gitignore</h2>
 <p>Add a .gitignore to the <em>pyndulum</em> code?</p>
@@ -747,6 +915,8 @@ Add as soon as you can in a project and update as you go along.</p>
 </section>
 <section id="issues" class="slide level2 smaller">
 <h2>Issues</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
 <p>Both GitHub and GitLab have methods for tracking issues.</p>
 <p>These are useful for organising work.</p>
 <ul>
@@ -754,8 +924,20 @@ Add as soon as you can in a project and update as you go along.</p>
 <li>logging new issues as they arise</li>
 <li>tracking and scheduling development</li>
 </ul>
-<p>Example issue log on GitHub: <a href="https://github.com/Cambridge-ICCS/FTorch/issues">Cambridge-ICCS/FTorch</a><br>
-</p>
+<p>Example issues:</p>
+<ul>
+<li><a href="https://github.com/m2lines/clubb_ML/issues">CLUBB-ML</a> e.g.&nbsp;<a href="https://github.com/m2lines/clubb_ML/issues/13">#13</a> or <a href="https://github.com/m2lines/clubb_ML/issues/17">#17</a></li>
+<li><a href="https://github.com/Cambridge-ICCS/FTorch/issues">Cambridge-ICCS/FTorch</a></li>
+<li><a href="https://github.com/Cambridge-ICCS/TCTrack/issues">TCTrack</a></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="v-center-container" style="text-align: center;">
+<p>GitHub<br>
+<img data-src="images/GitHub_Issues.jpg" style="width:100.0%"></p>
+<p>GitLab<br>
+<img data-src="images/GitLab_Issues.jpg" style="width:75.0%"></p>
+</div>
+</div></div>
 
 <!----------------------------------------------------------------------------------->
 <aside><div>
@@ -772,6 +954,15 @@ They will not be kept if you move the project elsewhere and do not appear on you
 <p><br>
 </p>
 <p>We will open issues for these on the online repository.</p>
+<p>I will open one for pendulum energy, but you should open one for pendulum length.</p>
+<p><br>
+</p>
+<div style="font-size: 0.5em;">
+<blockquote>
+<p><strong>!NOTE “Issues and Forks”</strong></p>
+<p>By default issues are off for forks, so you should open the issue on my copy of the repository on <a href="https://gitlab.com/jatkinson1000/git-for-science/-/issues">GitLab</a> or <a href="https://github.com/jatkinson1000/git-for-science/issues">GitHub</a>.</p>
+</blockquote>
+</div>
 
 <!----------------------------------------------------------------------------------->
 <!----------------------------------------------------------------------------------->
@@ -826,7 +1017,7 @@ They will not be kept if you move the project elsewhere and do not appear on you
 <div>
 <p></p><figure class=""><p></p>
 <div>
-<pre class="mermaid mermaid-js">    %%{init: {'theme': 'dark',
+<pre class="mermaid mermaid-js">    %%{init: {'theme': 'base',
               'gitGraph': {'rotateCommitLabel': true},
               'themeVariables': {
                   'commitLabelBackground': '#bbbbbb',
@@ -852,7 +1043,7 @@ They will not be kept if you move the project elsewhere and do not appear on you
 <div>
 <p></p><figure class=""><p></p>
 <div>
-<pre class="mermaid mermaid-js">    %%{init: {'theme': 'dark',
+<pre class="mermaid mermaid-js">    %%{init: {'theme': 'base',
               'gitGraph': {'rotateCommitLabel': true},
               'themeVariables': {
                   'commitLabelBackground': '#bbbbbb',
@@ -905,7 +1096,7 @@ They will not be kept if you move the project elsewhere and do not appear on you
 <div>
 <p></p><figure class=""><p></p>
 <div>
-<pre class="mermaid mermaid-js">    %%{init: {'theme': 'dark',
+<pre class="mermaid mermaid-js">    %%{init: {'theme': 'base',
               'gitGraph': {'rotateCommitLabel': true},
               'themeVariables': {
                   'commitLabelBackground': '#bbbbbb',
@@ -935,7 +1126,7 @@ They will not be kept if you move the project elsewhere and do not appear on you
 <div>
 <p></p><figure class=""><p></p>
 <div>
-<pre class="mermaid mermaid-js">    %%{init: {'theme': 'dark',
+<pre class="mermaid mermaid-js">    %%{init: {'theme': 'base',
               'gitGraph': {'rotateCommitLabel': true},
               'themeVariables': {
                   'commitLabelBackground': '#bbbbbb',
@@ -980,29 +1171,20 @@ They will not be kept if you move the project elsewhere and do not appear on you
 <p>We want to add a functions to calculate pendulum length from desired period and energy.</p>
 <p><br>
 </p>
-<p>Create a branch locally and add the new length equation to <code>pendulum_equations.py</code>. Make sure you add and commit your changes!</p>
-<p>Return to <code>main</code> and create <em>another</em> new branch to add the energy calculation. Again, commit your work.</p>
+<p>Together we will create a local branch and add the energy equation to <code>pendulum_equations.py</code>, add, commit, and push those changes.</p>
 <p><br>
 </p>
+<p>You should then return to main and create another local branch to add the length equation to <code>pendulum_equations.py</code>. Make sure you add and commit your changes!</p>
 <p>Once you have done this use</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a href="" aria-hidden="true" tabindex="-1"></a>git push &lt;remote&gt; &lt;branch&gt;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>to push your work up to a remote feature branch.</p>
-
 <!----------------------------------------------------------------------------------->
-<aside><div>
-<p>Note: There are a few different ways to merge branches: “merge”, “rebase”, “squash”.<br>
-Exploting these is beyond the scope of today’s course, but we’d be happy to discuss further afterwards.</p>
-</div></aside></section>
-<section id="aside---commit-messages" class="slide level2 smaller">
-<h2>Aside - Commit Messages</h2>
-<p><img data-src="images/bad_commit_messages.jpg" class="absolute" style="left: 0%; width: 40%; "></p>
-<div class="fragment">
-<p><img data-src="images/good_commit_messages.jpg" class="absolute" style="left: 45%; width: 40%; "></p>
-</div>
 <!----------------------------------------------------------------------------------->
 </section>
 <section id="mergepull-requests" class="slide level2 smaller">
 <h2>Merge/Pull Requests</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
 <ul>
 <li><p>Another feature of GitHub/GitLab.<sup>1</sup></p></li>
 <li><p>A friendlier, graphical way of merging branches</p></li>
@@ -1011,11 +1193,22 @@ Exploting these is beyond the scope of today’s course, but we’d be happy to 
 <ul>
 <li>can be opened after the first push</li>
 <li>a place for collaborative discussion.<br>
-An example: <a href="https://github.com/m2lines/convection-parameterization-in-CAM/pull/44">convection-parameterization-in-CAM/pull/44</a></li>
+</li>
 </ul></li>
 </ul>
+</div><div class="column" style="width:30%;">
+<p>Examples:</p>
+<ul>
+<li><a href="https://github.com/m2lines/CAM-ML/pull/50">CAM-ML #50</a> - Discussing bugfix</li>
+<li><a href="https://github.com/m2lines/convection-parameterization-in-CAM/pull/44">convection-parameterization-in-CAM/pull/44</a></li>
+</ul>
+</div></div>
+
 <!----------------------------------------------------------------------------------->
-<aside><ol class="aside-footnotes"><li id="fn6"><p>Not be part of your local git repository, but tied to the online provider.</p></li></ol></aside></section>
+<aside><div>
+<p>Note: There are a few different ways to merge branches: “merge”, “rebase”, “squash”.<br>
+Exploting these is beyond the scope of today’s course, but we’d be happy to discuss further afterwards.</p>
+</div><ol class="aside-footnotes"><li id="fn6"><p>Not be part of your local git repository, but tied to the online provider.</p></li></ol></aside></section>
 <section id="mergepull-requests-1" class="slide level2 smaller">
 <h2>Merge/Pull Requests</h2>
 <p>When opening a request you should include:</p>
@@ -1032,6 +1225,14 @@ An example: <a href="https://github.com/m2lines/convection-parameterization-in-C
 <ul>
 <li>into the main branch of your fork, or</li>
 <li>back to the main branch of my repository.</li>
+</ul>
+<p>Use additional features of GitHub/GitLab:</p>
+<ul>
+<li>write a clear description of the PR,</li>
+<li>use keywords to tie back to your issue<br>
+e.g.&nbsp;“closes #6”,</li>
+<li>add a “label” to categorise the work,</li>
+<li>Assign yourself</li>
 </ul>
 <!----------------------------------------------------------------------------------->
 <!----------------------------------------------------------------------------------->
@@ -1088,11 +1289,43 @@ If working alone ask colleagues for help and return the favour.</p>
 </section>
 <section id="exercise---code-review" class="slide level2 smaller">
 <h2>Exercise - Code Review</h2>
-<p>We will work through the two pull requests we opened and perform a code review before merging the work.</p>
+<p>We will work through the length equation pull request and perform a code review before merging the work.</p>
 <p><br>
 </p>
-<p>If anyone in the audience opened a pull request back to my repository and would like to volunteer we can review their code!</p>
+<p>If anyone in the audience opened a pull request back to my repository and would like to volunteer we can review your code!</p>
+<p>Please raise your hand and let me know the “number” pf your Merge/Pull request.</p>
 <!----------------------------------------------------------------------------------->
+<!-- ============================================================================== -->
+</section>
+<section id="aside---commit-messages" class="slide level2 smaller">
+<h2>Aside - Commit Messages</h2>
+<p><img data-src="images/bad_commit_messages.jpg" class="absolute" style="left: 0%; width: 40%; "></p>
+<div class="fragment">
+<p><img data-src="images/good_commit_messages.jpg" class="absolute" style="left: 45%; width: 40%; "></p>
+</div>
+</section>
+<section id="aside---commit-frequency" class="slide level2 smaller">
+<h2>Aside - Commit Frequency</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>There are differing thoughts on commit frequency and style. I suggest:</p>
+<ul>
+<li>Synoptic Scale: Project or Meta-issues</li>
+<li>Mesoscale: Pull requests</li>
+<li>Microscale: Commits</li>
+</ul>
+</div><div class="column">
+<p>Some useful examples:</p>
+<ul>
+<li><a href="https://github.com/m2lines/CAM-ML/pull/23">CAM-ML #23</a> - Adding number concentration calculations</li>
+<li><a href="https://github.com/m2lines/CAM-ML/pull/32">CAM-ML #32</a> - restoring a previously removed variable<br>
+We can look directly at <a href="https://github.com/m2lines/CAM-ML/pull/32/commits/8bdb319e453290845d57ccca0528f9a68f1fb6b9">8bdb319</a> to see what needs doing.</li>
+<li><a href="https://github.com/Cambridge-ICCS/FTorch/pull/320">FTorch #230</a> - Adding optimizers<br>
+A little long, but shows the development process and discussions.</li>
+<li><a href="https://github.com/Cambridge-ICCS/TCTrack/pull/69">TCTrack #69</a> - Refactoring code structure<br>
+A big refactor, but we break up into logical chunks should one have an issue.</li>
+</ul>
+</div></div>
 <!-- ============================================================================== -->
 </section></section>
 <section>
@@ -1135,6 +1368,20 @@ If working alone ask colleagues for help and return the favour.</p>
 </ul>
 </div></div>
 </section>
+<section id="beyond-today" class="slide level2 smaller">
+<h2>Beyond today</h2>
+<p>As we said at the opening, git is a rabbit hole.</p>
+<ul>
+<li>Project Boards for project management</li>
+<li>Merge commit, squash, and rebase options for merging</li>
+<li><code>git rebase</code> - to shuffle history and keep things clean</li>
+<li><code>git add -p</code> - patched commits, add a section of a file</li>
+<li><code>git commit --fixup</code> - for when you missed something out of a commit</li>
+<li>Continuous Integration Workflows</li>
+<li>pre-commit</li>
+</ul>
+<!-- ============================================================================== -->
+</section>
 <section id="where-can-i-learn-more" class="slide level2 smaller">
 <h2>Where can I learn more?</h2>
 <div class="columns">
@@ -1167,7 +1414,7 @@ If working alone ask colleagues for help and return the favour.</p>
 <p><i class="fa-solid fa-globe" aria-label="globe"></i> &nbsp;<a href="https://jackatkinson.net">jackatkinson.net</a></p>
 <p><i class="fa-solid fa-envelope" aria-label="envelope"></i> &nbsp;<a href="mailto:jwa34@cam.ac.uk">jwa34[AT]cam.ac.uk</a></p>
 <p><i class="fa-brands fa-github" aria-label="github"></i> &nbsp;<a href="https://github.com/jatkinson1000">jatkinson1000</a></p>
-<p><i class="fa-brands fa-mastodon" aria-label="mastodon"></i> &nbsp;<a href="https://fosstodon.org/@jatkinson1000">@jatkinson1000@fosstodon.org</a></p>
+<p><i class="fa-brands fa-mastodon" aria-label="mastodon"></i> &nbsp;<a href="https://hachyderm.io/@jatkinson1000">@jatkinson1000@hachyderm.io</a></p>
 </div></div>
 </section>
 <section id="references" class="slide level2 smaller scrollable">

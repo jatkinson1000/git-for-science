@@ -2,16 +2,6 @@
 
 <!----------------------------------------------------------------------------------->
 
-## What is git {.smaller}
-
-git is a version control system developed by Linus Torvalds.^[also the creator of Linux]
-
-It tracks changes made to files over time.
-
-![]( images/alice_rabbit_hole.jpg ){.absolute top=30% width=40% left=30%}
-
-<!----------------------------------------------------------------------------------->
-
 ## Installation and setup {.smaller}
 
 Git comes preinstalled on most Linux distributions and macOS.\
@@ -38,7 +28,78 @@ We will assume that you have created a repository using an online hosting servic
 
 <!----------------------------------------------------------------------------------->
 
-## How does it work? {.smaller}
+## What is git? {.smaller}
+
+- a version control system developed by Linus Torvalds.^[Also the creator of Linux]
+- tracks changes made to files over time.
+- not Dropbox!
+
+![]( images/alice_rabbit_hole.jpg ){.absolute top=30% width=40% left=30%}
+
+::: {.attribution}
+Rabbit hole from Disney's Alice in Wonderland under fair use
+:::
+
+<!----------------------------------------------------------------------------------->
+
+## git Geography {.smaller}
+
+:::: {.columns}
+::: {.column width=35%}
+**Locations**
+
+- Local
+  - Workspace
+  - Staging area _or_ index
+  - Local repo
+  - Stash
+- Remote
+  - Remote repo
+:::
+
+::: {.column .v-center-container style="text-align: center; width: 65%;"}
+![]( images/git_spaces_2.png ){width=100%}
+:::
+::::
+
+These (and more) can be explored in Andrew Peterson's
+[Interactive git cheat sheet](https://ndpsoftware.com/git-cheatsheet.html)
+
+
+## A Warning {.smaller}
+
+![]( images/lost_work_b0rk.jpg )
+
+:::{.attribution}
+[Julia Evans - \@b0rk](https://fosstodon.org/@b0rk@jvns.ca/111920509893059355)
+:::
+
+<!----------------------------------------------------------------------------------->
+
+{{< include _basic_commands.qmd >}}
+
+<!-- ============================================================================== -->
+
+## Exercise {.smaller}
+
+Obtain a copy of the repository from the online remote using `git clone`.
+
+\
+
+If you made a fork clone this, otherwise clone the main workshop version.
+
+\
+
+Take a look around, how useful is this?^[Since we are good python users we will use a
+[virtual environment](https://docs.python.org/3/tutorial/venv.html).
+Can we play with these commands in the repl?]
+
+Before we get started properly we'll do a quick practical refresher of the
+basic git commands.
+
+<!----------------------------------------------------------------------------------->
+
+## How does git work? {.smaller}
 
 A mental model:
 
@@ -52,9 +113,9 @@ A mental model:
 
 <!----------------------------------------------------------------------------------->
 
-## How does it work? {.smaller}
+## How does git work? {.smaller}
 
-```{.shell code-line-numbers="|1,3-4|5|5-8,11,12-15,17-19|5-8,9-10,11,16,17-19|"}
+```{.python code-line-numbers="|1,3-4|5|5-8,11-15,17-19|5-11,16-19"}
 diff --git a/mycode/functions.py b/mycode/functions.py
 index b784b07..d08024a 100644
 --- a/mycode/functions.py
@@ -86,7 +147,7 @@ index b784b07..d08024a 100644
 
 <!----------------------------------------------------------------------------------->
 
-## How does it work? {.smaller}
+## How does git work? {.smaller}
 
 Actually:
 

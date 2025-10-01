@@ -2,6 +2,9 @@
 
 ## Merge/Pull Requests {.smaller}
 
+:::: {.columns}
+
+::: {.column width="70%"}
 - Another feature of GitHub/GitLab.^[Not be part of your local git repository,
   but tied to the online provider.]
 - A friendlier, graphical way of merging branches
@@ -10,7 +13,21 @@
 - A method of tracking progress
   - can be opened after the first push
   - a place for collaborative discussion.\
-    An example: [convection-parameterization-in-CAM/pull/44](https://github.com/m2lines/convection-parameterization-in-CAM/pull/44)
+:::
+::: {.column width="30%"}
+Examples: 
+
+- [CAM-ML #50](https://github.com/m2lines/CAM-ML/pull/50) - Discussing bugfix
+- [convection-parameterization-in-CAM/pull/44](https://github.com/m2lines/convection-parameterization-in-CAM/pull/44)
+
+:::
+::::
+
+::: {.aside}
+Note: There are a few different ways to merge branches: "merge", "rebase", "squash".\
+Exploting these is beyond the scope of today's course, but we'd be happy to discuss
+further afterwards.
+:::
 
 <!----------------------------------------------------------------------------------->
 
@@ -30,5 +47,13 @@ From the branches you pushed up in the previous exercise open pull requests eith
 
 - into the main branch of your fork, or
 - back to the main branch of my repository.
+
+Use additional features of GitHub/GitLab:
+
+- write a clear description of the PR,
+- use keywords to tie back to your issue\
+  e.g. "closes #6",
+- add a "label" to categorise the work,
+- Assign yourself
 
 <!----------------------------------------------------------------------------------->

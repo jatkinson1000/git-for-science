@@ -75,9 +75,10 @@ $link-color: $linkcolour !default;
 /*-- vertically center columns (or any container) --*/
 .v-center-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 90%;
+  gap: 1em;
 }
 
 
