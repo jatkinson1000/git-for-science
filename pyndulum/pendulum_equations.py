@@ -93,5 +93,5 @@ def bpm(len: float) -> float:
     """
     return 60.0 / get_period(len)
 
-def inv(p):
+def length_from_period(p):
     return ((p / 2.0 * np.pi) ** 2) * 9.81
