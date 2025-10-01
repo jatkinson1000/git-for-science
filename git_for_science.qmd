@@ -20,7 +20,7 @@ authors:
   - name: Jack Atkinson
     orcid: 0000-0001-5001-4812
     affiliations: Senior Research Software Engineer <br> ICCS - University of Cambridge
-date: "2025-06-23"
+date: "2025-10-01"
 bibliography: references.bib
 ---
 
@@ -235,6 +235,7 @@ As we said at the opening, git is a rabbit hole.
 - `git rebase` - to shuffle history and keep things clean
 - `git add -p` - patched commits, add a section of a file
 - `git commit --fixup` - for when you missed something out of a commit
+- git worktrees to help organise working on branches in parallel
 - Continuous Integration Workflows
 - pre-commit
 
