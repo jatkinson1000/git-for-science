@@ -19,8 +19,10 @@ revealjs-plugins:
 authors:
   - name: Jack Atkinson
     orcid: 0000-0001-5001-4812
+    affiliations: Principal Research Software Engineer <br> ICCS - University of Cambridge
+  - name: Mikolaj Kowalski
     affiliations: Senior Research Software Engineer <br> ICCS - University of Cambridge
-date: "2025-10-01"
+date: "2026-07-16"
 bibliography: references.bib
 ---
 
@@ -260,14 +262,14 @@ As we said at the opening, git is a rabbit hole.
 :::
 ::::
 
-## Thanks
+## Thanks {.smaller}
 
 :::: {.columns}
 
 ::: {.column width="20%"}
 Get in touch:
 :::
-::: {.column width="80%"}
+::: {.column width="40%"}
 {{< fa pencil >}} \ Jack Atkinson
 
 {{< fa solid globe >}} \ [jackatkinson.net](https://jackatkinson.net)
@@ -277,6 +279,13 @@ Get in touch:
 {{< fa brands github >}} \ [jatkinson1000](https://github.com/jatkinson1000)
 
 {{< fa brands mastodon >}} \ [\@jatkinson1000\@hachyderm.io](https://hachyderm.io/@jatkinson1000)
+:::
+::: {.column width="30%"}
+{{< fa pencil >}} \ Mikolaj Kowlaski
+
+{{< fa solid envelope >}} \ [mak60[AT]cam.ac.uk](mailto:mak60@cam.ac.uk)
+
+{{< fa brands github >}} \ [Mikolaj-A-Kowalski](https://github.com/Mikolaj-A-Kowalski)
 :::
 ::::
 
