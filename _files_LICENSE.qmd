@@ -1,6 +1,6 @@
 <!----------------------------------------------------------------------------------->
 
-## License {.smaller}
+## Licenses {.smaller}
 
 All public codes should have a license attached!
 

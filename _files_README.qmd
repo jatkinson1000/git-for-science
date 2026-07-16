@@ -97,7 +97,7 @@ Add as soon as you can in a project and update as you go along.
 
 How can we improve the README in the _pyndulum_ code?
 
-Edit the `README.md` file to improve it.
+Create a **feature branch** and edit the `README.md` file to improve it.
 In-particular think about:
 
 - A description of what the code is
@@ -107,7 +107,23 @@ In-particular think about:
 
 Add and commit your changes.
 
-If you are working from a fork then push to see these changes reflected on the online
-remote repository.
+If you are working in a fork then push to see these changes reflected as a
+branch on the online remote repository.
+
+<!----------------------------------------------------------------------------------->
+
+## Extension Exercise - README {.smaller}
+
+I have made my additions to the README in my original repository.
+
+\
+
+Since you have made a fork you can get these updates directly on GitHub
+by "synchronising" your fork.
+
+\
+
+After doing this check out the `main` branch locally and pull to get the
+changes in your local working directory.
 
 <!----------------------------------------------------------------------------------->

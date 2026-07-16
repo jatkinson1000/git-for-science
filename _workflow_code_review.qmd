@@ -2,12 +2,19 @@
 
 ## Code Review {.smaller}
 
+Code review is the process of having someone else read, run(?) and provide
+feedback.
+
 :::: {.columns}
 ::: {.column width=50%}
+
+::: {.fragment}
 Code review is not:
 
 - just for 'real' software
 - a chance to feel bad about your code
+:::
+
 :::
 ::: {.column width=50%}
 
@@ -60,14 +67,13 @@ If working alone ask colleagues for help and return the favour.
 
 ## Exercise - Code Review {.smaller}
 
-We will work through the length equation pull request and perform a code review before
-merging the work.
+We will work through the length equation pull requests and perform code
+reviews before merging the work.
 
 \
 
-If anyone in the audience opened a pull request back to my repository and would like to
-volunteer we can review your code!
-
-Please raise your hand and let me know the "number" pf your Merge/Pull request.
+Work in pairs to review one-another's code.
+If anyone in the audience opened a pull request back to my repository and
+would like to volunteer we can review your code together!
 
 <!----------------------------------------------------------------------------------->

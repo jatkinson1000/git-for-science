@@ -2,10 +2,12 @@
 
 ## Merge/Pull Requests {.smaller}
 
+How to get your new code back to the main source!
+
 :::: {.columns}
 
-::: {.column width="70%"}
-- Another feature of GitHub/GitLab.^[Not be part of your local git repository,
+::: {.column width="65%"}
+- Another feature of GitHub/GitLab.^[Again, not part of your local git repository,
   but tied to the online provider.]
 - A friendlier, graphical way of merging branches
 - Can be linked to GitHub/GitLab issues
@@ -14,18 +16,21 @@
   - can be opened after the first push
   - a place for collaborative discussion.\
 :::
+::: {.column width="5%"}
+:::
 ::: {.column width="30%"}
 Examples: 
 
 - [CAM-ML #50](https://github.com/m2lines/CAM-ML/pull/50) - Discussing bugfix
-- [convection-parameterization-in-CAM/pull/44](https://github.com/m2lines/convection-parameterization-in-CAM/pull/44)
 
 :::
 ::::
 
-::: {.aside}
-Note: There are a few different ways to merge branches: "merge", "rebase", "squash".\
-Exploting these is beyond the scope of today's course, but we'd be happy to discuss
+:::{.callout-note}
+## Merge strategies
+
+There are a few different ways to merge branches: "merge", "rebase", "squash".\
+Exploring these is beyond the scope of today's course, but we'd be happy to discuss
 further afterwards.
 :::
 
@@ -39,21 +44,56 @@ When opening a request you should include:
 - Any points to be particularly aware of
 - Checkboxes for required/ongoing tasks
 
+We will demonstrate opening:
+
+- an internal pull request with the energy equation, and
+- an external pull request with the length equation.
+
 <!----------------------------------------------------------------------------------->
 
-## Exercise - Merge/Pull requests {.smaller}
+## Exercise\ - Merge/Pull requests {.smaller}
 
-From the branches you pushed up in the previous exercise open pull requests either:
+From the length equation branch you pushed in the previous exercise,
+open a pull request either:
 
 - into the main branch of your fork, or
 - back to the main branch of my repository.
 
 Use additional features of GitHub/GitLab:
 
-- write a clear description of the PR,
-- use keywords to tie back to your issue\
+- write a clear description of the contribution,
+- use keywords to tie back to the issue you opened
   e.g. "closes #6",
-- add a "label" to categorise the work,
-- Assign yourself
+- add the "new equation" label to categorise the work,
+- assign yourself as the author.
+
+<!----------------------------------------------------------------------------------->
+
+## Aside - Commit Frequency {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+There are differing thoughts on commit frequency and style.
+I suggest:
+
+- Synoptic Scale: Project or Meta-issues
+- Mesoscale: Pull requests
+- Microscale: Commits
+:::
+::: {.column}
+Some useful examples:
+
+- [CAM-ML #23](https://github.com/m2lines/CAM-ML/pull/23) - Adding number concentration calculations
+- [CAM-ML #32](https://github.com/m2lines/CAM-ML/pull/32) - restoring a previously
+  removed variable\
+  We can look directly at
+  [8bdb319](https://github.com/m2lines/CAM-ML/pull/32/commits/8bdb319e453290845d57ccca0528f9a68f1fb6b9)
+  to see what needs doing.
+- [FTorch #230](https://github.com/Cambridge-ICCS/FTorch/pull/320) - Adding optimizers\
+  A little long, but shows the development process and discussions.
+- [TCTrack #69](https://github.com/Cambridge-ICCS/TCTrack/pull/69) - Refactoring code structure\
+  A big refactor, but we break up into logical chunks should one have an issue.
+:::
+::::
 
 <!----------------------------------------------------------------------------------->
