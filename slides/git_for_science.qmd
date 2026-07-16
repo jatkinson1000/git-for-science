@@ -79,9 +79,9 @@ used under [CC0(1.0)](https://creativecommons.org/publicdomain/zero/1.0/deed.en)
 :::: {.columns}
 ::: {.column width="55%"}
 - Recap the basic git commands
-- Improve contextual understanding of git:
-  - through mental models
-  - review landscape
+- Understand key components of git repositories to aid in collaboration
+
+\
 
 ::: {.v-center-container style="text-align: center;"}
 ![]( images/git_spaces_2.png ){width=75%}
@@ -91,11 +91,8 @@ used under [CC0(1.0)](https://creativecommons.org/publicdomain/zero/1.0/deed.en)
 
 ::: {.column width="45%"}
 ::: {.fragment}
-- Understand key components of git repositories to aid in collaboration
-:::
-
-::: {.fragment}
-- Lern how to use git and GitHub/GitLab to better manage development and collaboration
+- Link git version control to online tools of GitHub/GitLab
+- Learn how to use git and GitHub/GitLab to better manage development and collaboration
   - branches
   - issues
   - merge/pull requests
@@ -110,31 +107,47 @@ used under [CC0(1.0)](https://creativecommons.org/publicdomain/zero/1.0/deed.en)
 ## Structure & Premise {.smaller}
 
 - This workshop has teaching interwoven with practical exercises
-- We will be cloning a basic git repository and improving it over the session
+- We will be fork and clone a simple git repository, improving it throughout the
+  course
 - After learning new concepts we will immediately put them into practice
-  with a coding exercise before returning to learn more.
+  with a practical exercise.
 
+::: {.fragment}
 I suggest you have open:
 
 - A text editor or IDE
 - A terminal window
 - A browser window
+:::
 
 <!-- ============================================================================== -->
 
-## Structure & Premise {.smaller}
+## Installation and setup {.smaller}
 
-You are doing some work on pendula and your colleague says they have written some code
-that solves the equations and they can share with you.\
-This is made easy by the fact that it is on git!\
-Let's see how we get on...
+Git comes preinstalled on most Linux distributions and macOS.\
+You can check it is on your system by running `which git`.
 
-Go to the workshop repository:
+\
 
-- GitHub:  [github.com/jatkinson1000/git-for-science](https://github.com/jatkinson1000/git-for-science)
-- GitLab: [gitlab.com/jatkinson1000/git-for-science](https://gitlab.com/jatkinson1000/git-for-science)
+If you are on Windows, or do not have git, check the
+[git docs](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)^[As an aside,
+the official git docs have a... reputation. Although good for reference there are
+often friendlier resources for learning.] or the
+[GitHub guide](https://github.com/git-guides/install-git) to installing git.
+https://github.com/git-guides/install-git
 
-If you have an account then `fork` the repository and clone your fork.\
+\
+
+For this workshop we will assume that a repository you wish to work on already exists
+online online (on GitLab, GitHub etc.).
+
+:::{callout-tip}
+Setting up a new git repository is beyond the scope of this talk but involves using the
+[`git --init` command](https://git-scm.com/docs/git-init).
+:::
+
+\
+
 
 <!-- ============================================================================== -->
 
@@ -155,10 +168,25 @@ If you have an account then `fork` the repository and clone your fork.\
 # Git Workflow
 
 {{< include _workflow_issues.qmd >}}
-{{< include _workflow_branches.qmd >}}
+<!-- {{< include _workflow_branches.qmd >}} -->
 
-{{< include _workflow_merge_requests.qmd >}}
-{{< include _workflow_code_review.qmd >}}
+## Exercise - Adding Equations {.smaller}
+
+Having opened those issues let's now add functions to calculate 
+
+- pendulum energy, and
+- pendulum length from desired period.
+
+\
+
+I will create a local branch and add the energy equation to
+`pendulum_equations.py`, add, commit, and push those changes.
+
+\
+
+You should create your own branch from main and add the length
+equation to `pendulum_equations.py`.
+Make sure you add and commit your changes, and then push them to a branch on your remote.
 
 <!-- ============================================================================== -->
 
@@ -170,32 +198,10 @@ If you have an account then `fork` the repository and clone your fork.\
 ![](images/good_commit_messages.jpg){.absolute left=45% width=40%}
 :::
 
-## Aside - Commit Frequency {.smaller}
+<!-- ============================================================================== -->
 
-:::: {.columns}
-::: {.column width="50%"}
-There are differing thoughts on commit frequency and style.
-I suggest:
-
-- Synoptic Scale: Project or Meta-issues
-- Mesoscale: Pull requests
-- Microscale: Commits
-:::
-::: {.column}
-Some useful examples:
-
-- [CAM-ML #23](https://github.com/m2lines/CAM-ML/pull/23) - Adding number concentration calculations
-- [CAM-ML #32](https://github.com/m2lines/CAM-ML/pull/32) - restoring a previously
-  removed variable\
-  We can look directly at
-  [8bdb319](https://github.com/m2lines/CAM-ML/pull/32/commits/8bdb319e453290845d57ccca0528f9a68f1fb6b9)
-  to see what needs doing.
-- [FTorch #230](https://github.com/Cambridge-ICCS/FTorch/pull/320) - Adding optimizers\
-  A little long, but shows the development process and discussions.
-- [TCTrack #69](https://github.com/Cambridge-ICCS/TCTrack/pull/69) - Refactoring code structure\
-  A big refactor, but we break up into logical chunks should one have an issue.
-:::
-::::
+{{< include _workflow_merge_requests.qmd >}}
+{{< include _workflow_code_review.qmd >}}
 
 <!-- ============================================================================== -->
 
@@ -230,16 +236,18 @@ git is not just a series of backups, it is a project management system.
 
 ## Beyond today {.smaller}
 
-As we said at the opening, git is a rabbit hole.
+Today has introduced the basics for good collaborative work and project
+management using git and GitHub/GitLab.
 
-- Project Boards for project management
-- Merge commit, squash, and rebase options for merging
-- `git rebase` - to shuffle history and keep things clean
-- `git add -p` - patched commits, add a section of a file
-- `git commit --fixup` - for when you missed something out of a commit
-- git worktrees to help organise working on branches in parallel
-- Continuous Integration Workflows
-- pre-commit
+Further topics to explore beyond the scope of today include:
+
+- Project Boards for project management,
+- Merge commit, squash, and rebase options for merging,
+- Advanced git practices from the intermediate git course for clean
+  commit histories,
+- git worktrees to help organise working on branches in parallel,
+- Continuous Integration workflows,
+- pre-commit hooks
 
 <!-- ============================================================================== -->
 

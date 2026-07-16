@@ -9,33 +9,63 @@ Both GitHub and GitLab have methods for tracking issues.
 These are useful for organising work.
 
 - managing separate tasks
-- logging new issues as they arise
+- logging problems/tasks as they arise
 - tracking and scheduling development
 
-Example issues:
+\
 
-- [CLUBB-ML](https://github.com/m2lines/clubb_ML/issues)
-  e.g. [#13](https://github.com/m2lines/clubb_ML/issues/13) or
-  [#17](https://github.com/m2lines/clubb_ML/issues/17)
-- [Cambridge-ICCS/FTorch](https://github.com/Cambridge-ICCS/FTorch/issues)
-- [TCTrack](https://github.com/Cambridge-ICCS/TCTrack/issues)
+::: {.callout-note}
+Issues are part of GitHub/GitLab, NOT the git repository.\
+They will not be kept if you move the project elsewhere and do not appear on your
+local system.
+:::
+
 :::
 ::: {.column width="40%"}
 ::: {.v-center-container style="text-align: center;"}
 GitHub\
-![](images/GitHub_Issues.jpg){width=100%}
+![](images/GitHub_Issues.jpg){width=80%}
 
 GitLab\
-![](images/GitLab_Issues.jpg){width=75%}
+![](images/GitLab_Issues.jpg){width=79%}
 :::
+
 :::
 ::::
 
-::: {.aside}
-NOTE: Issues are part of GitHub/GitLab, NOT the git repository.\
-They will not be kept if you move the project elsewhere and do not appear on your
-local system.
+
+<!----------------------------------------------------------------------------------->
+
+## What goes in an Issue? {.smaller}
+
+:::: {.columns}
+::: {.column width="60%"}
+- Issues could be for bug-report or development
+- A clear statement of the problem or proposed work
+- Steps for others to reproduce the problem
+- Links to any relevant resources
+- Previously tried solutions
+- Relevant tags on the repository
+
+:::{.callout-note}
+Projects may use a template for issues guiding what they want
+to see.
 :::
+:::
+::: {.column width="5%"}
+:::
+::: {.column width="35%"}
+
+Example issues:
+
+- [CLUBB-ML](https://github.com/m2lines/clubb_ML/issues)
+  - e.g. [#13](https://github.com/m2lines/clubb_ML/issues/13) or
+    [#17](https://github.com/m2lines/clubb_ML/issues/17)
+- [FTorch](https://github.com/Cambridge-ICCS/FTorch/issues)
+- [TCTrack](https://github.com/Cambridge-ICCS/TCTrack/issues)
+
+:::
+::::
 
 <!----------------------------------------------------------------------------------->
 
@@ -54,12 +84,12 @@ I will open one for pendulum energy, but you should open one for pendulum length
 
 \
 
-::: {style="font-size: 0.5em;"}
-> **!NOTE "Issues and Forks"**
-> 
-> By default issues are off for forks, so you should open the issue on my copy of the
-> repository on [GitLab](https://gitlab.com/jatkinson1000/git-for-science/-/issues)
-> or [GitHub](https://github.com/jatkinson1000/git-for-science/issues).
+:::{.callout-important}
+## Issues and Forks
+
+By default issues are off for forks, so you should open the issue on my copy of the
+repository on [GitLab](https://gitlab.com/jatkinson1000/git-for-science/-/issues)
+or [GitHub](https://github.com/jatkinson1000/git-for-science/issues).
 :::
 
 ::: {.aside}

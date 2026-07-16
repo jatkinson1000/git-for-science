@@ -26,10 +26,11 @@ generating multi-language .gitignores.
 
 \
 
-Aside:
-
+:::{.callout-tip}
 While it can be tempting to use `git add -a` it should be avoided to prevent detritus
-and unclear commits. For the terminally lazy a better alternative is `git add -u`.
+and unclear commits.\
+A better alternative is `git add -u`.
+:::
 
 <!----------------------------------------------------------------------------------->
 
@@ -39,7 +40,7 @@ Add a .gitignore to the _pyndulum_ code?
 
 \
 
-We will use the online helper features of GitHub or GitLab to set up a basic gitignore
+We will use the online helper features of GitHub or GitLab to set up a basic .gitignore
 file for a Python code.
 
 \
