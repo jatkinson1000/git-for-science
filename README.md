@@ -1,5 +1,10 @@
 # pyndulum
 
-Python code for doing pendulum stuff.
+# Python code for running some pendulum functions.
 
-By Jack Atkinson.
+By Richard Alawode.
+
+## Content
+- Introduction and description
+- Installation
+- API

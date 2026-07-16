@@ -1,0 +1,26 @@
+Metadata-Version: 2.4
+Name: pyndulum
+Version: 1.0.0
+Summary: A python code for pendulum equations
+Author-email: Jack Atkinson <jack.atkinson1000@gmail.com>
+Project-URL: Homepage, https://gitlab.com/jatkinson1000/git-for-science
+Project-URL: Bug Tracker, https://gitlab.com/jatkinson1000/git-for-science/-/issues
+Classifier: License :: OSI Approved :: GPL-3.0-only License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: numpy>=1.20.0
+Provides-Extra: test
+Requires-Dist: pytest>=7.2.0; extra == "test"
+Provides-Extra: lint
+Requires-Dist: ruff; extra == "lint"
+Requires-Dist: mypy>=1.0.0; extra == "lint"
+Requires-Dist: pytest>=7.2.0; extra == "lint"
+
+# pyndulum
+
+Python code for doing pendulum stuff.
+
+By Jack Atkinson.
