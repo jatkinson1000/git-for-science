@@ -19,6 +19,22 @@ def get_period(len: float) -> float:
     """
     return 2.0 * np.pi * np.sqrt(len / 9.81)
 
+def get_length(period: float) -> float:
+    """
+    Calculate the length of a pendulum.
+
+    Parameters
+    ----------
+    period : float
+        period of the pendulum [s]
+
+    Returns
+    -------
+    float
+        length [m] of the pendulum
+    """
+    return (period / (2.0 * np.pi)) ** 2 * 9.81
+
 
 def max_height(len: float, theta: float) -> float:
     """
