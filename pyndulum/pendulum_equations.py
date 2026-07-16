@@ -19,6 +19,14 @@ def get_period(len: float) -> float:
     """
     return 2.0 * np.pi * np.sqrt(len / 9.81)
 
+def get_length_from_period(P,g):
+    """
+    Calculate the length of the pendulum from its period. 
+    P = period in s
+    g = gravitationnal constant S.I
+    """
+    length = g * (P/(2*np.pi))**2
+    return length
 
 def max_height(len: float, theta: float) -> float:
     """
