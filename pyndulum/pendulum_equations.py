@@ -21,7 +21,7 @@ def get_period(len: float) -> float:
 
 def get_length(period: float) -> float:
     """
-    Calculate the length of a pendulum from its period. Yu 2026-07-16 ICCS
+    Calculate the length of a pendulum from its period.
 
     Parameters
     ----------
