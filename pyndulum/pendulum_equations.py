@@ -42,7 +42,38 @@ def max_height(len: float, theta: float) -> float:
 def max_speed(len: float, theta: float) -> float:
     """
     Calculate the maximum speed of a pendulum.
+"""Module implementing pendulum equations."""
 
+import numpy as np
+
+
+def get_period(len: float) -> float:
+    """
+    Calculate the period of a pendulum.
+
+    Parameters
+    ----------
+    len : float
+        length of the pendulum [m]
+
+    Returns
+    -------
+    float
+        period [s] for a swing of the pendulum
+    """
+    return 2.0 * np.pi * np.sqrt(len / 9.81)
+
+
+def max_height(len: float, theta: float) -> flo>
+    """
+    Calculate the maximum height reached by a p>
+
+    Parameters
+    ----------
+    len : float
+        length of the pendulum [m]
+    theta : float
+        maximum angle of
     Parameters
     ----------
     len : float
@@ -92,3 +123,19 @@ def bpm(len: float) -> float:
         pendulum frequency in beats per minute [1 / min]
     """
     return 60.0 / get_period(len)
+
+def get_length(period: float) -> float:
+    """
+    Calculate the length of a pendulum given its period.
+
+    Parameters
+    ----------
+    period : float
+        period [s] for a swing of the pendulum
+
+    Returns
+    -------
+    float
+        length of the pendulum [m]
+    """
+    return 9.81 * (period / (2.0 * np.pi)) ** 2
