@@ -25,8 +25,7 @@ def get_length_from_period(P,g):
     P = period in s
     g = gravitationnal constant S.I
     """
-    length = g * (P/(2*np.pi))**2
-    return length
+    return g * (P/(2*np.pi))**2
 
 def max_height(len: float, theta: float) -> float:
     """
